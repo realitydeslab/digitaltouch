@@ -3,13 +3,8 @@ using UnityEngine.XR.Hands;
 
 public class HandGestureLogger : MonoBehaviour
 {
-    public void OnHandFisted(Handedness handedness)
+    public void OnHandGestureChanged(Handedness handedness, HandGesture oldGesture, HandGesture newGesture)
     {
-        Debug.Log($"OnHandFisted: {handedness}");
-    }
-
-    public void OnHandUnfisted(Handedness handedness)
-    {
-        Debug.Log($"OnHandUnfisted: {handedness}");
+        Debug.Log($"OnHandGestureChanged: {handedness}, {newGesture}");
     }
 }

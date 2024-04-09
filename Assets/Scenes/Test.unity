@@ -157,7 +157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -130}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &12779578
@@ -409,7 +409,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &94088559
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1236,7 +1236,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 400}
+  m_SizeDelta: {x: 360, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &581484484
 MonoBehaviour:
@@ -2179,13 +2179,15 @@ GameObject:
   - component: {fileID: 1717326441}
   - component: {fileID: 1717326445}
   - component: {fileID: 1717326446}
+  - component: {fileID: 1717326447}
+  - component: {fileID: 1717326448}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Network Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1717326441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2258,7 +2260,7 @@ RectTransform:
   m_GameObject: {fileID: 1717326440}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3}
-  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_LocalScale: {x: 0.0005, y: 0.0005, z: 0.0005}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 581484483}
@@ -2286,8 +2288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a2d7d89889b4d94fa1f8d6fe49788e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Target: {fileID: 2006168857}
-  m_TargetOffset: {x: 1.5, y: 0, z: 5}
+  m_Target: {fileID: 8375027407695695304}
+  m_TargetOffset: {x: 0, y: 10, z: 0}
   m_FollowInLocalSpace: 0
   m_ApplyTargetInLocalSpace: 0
   m_MovementSpeed: 6
@@ -2295,9 +2297,9 @@ MonoBehaviour:
   m_SnapOnEnable: 1
   m_PositionFollowMode: 1
   m_MinDistanceAllowed: 0.01
-  m_MaxDistanceAllowed: 0.3
+  m_MaxDistanceAllowed: 0.02
   m_TimeUntilThresholdReachesMaxDistance: 3
-  m_RotationFollowMode: 1
+  m_RotationFollowMode: 0
   m_MinAngleAllowed: 0.1
   m_MaxAngleAllowed: 5
   m_TimeUntilThresholdReachesMaxAngle: 3
@@ -2317,6 +2319,32 @@ MonoBehaviour:
   m_StartClientButton: {fileID: 101868185}
   m_ShutdownButton: {fileID: 1167414470}
   m_NetworkStatusText: {fileID: 12779578}
+--- !u!114 &1717326447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717326440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff66f1f5a578a456cb03181dd9e2efad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MainCamera: {fileID: 2006168857}
+--- !u!114 &1717326448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717326440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15eb0a713ad5b4504b7747f48979a3f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NetworkPanel: {fileID: 1717326440}
 --- !u!1001 &1735377079
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2327,19 +2355,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4353764998897906590, guid: e95e04ef57401497aacfd9e9682c4f09, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 22.35
       objectReference: {fileID: 0}
     - target: {fileID: 4706595756243905878, guid: e95e04ef57401497aacfd9e9682c4f09, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4706595756243905878, guid: e95e04ef57401497aacfd9e9682c4f09, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4706595756243905878, guid: e95e04ef57401497aacfd9e9682c4f09, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: -17
       objectReference: {fileID: 0}
     - target: {fileID: 5759706581936771763, guid: e95e04ef57401497aacfd9e9682c4f09, type: 3}
       propertyPath: m_Camera
@@ -2429,13 +2457,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: In-Game Console
       objectReference: {fileID: 0}
-    - target: {fileID: 8037980046779726501, guid: e95e04ef57401497aacfd9e9682c4f09, type: 3}
-      propertyPath: m_AnchorMax.x
+    - target: {fileID: 6989791773391185044, guid: e95e04ef57401497aacfd9e9682c4f09, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8037980046779726501, guid: e95e04ef57401497aacfd9e9682c4f09, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8037980046779726501, guid: e95e04ef57401497aacfd9e9682c4f09, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2564,12 +2596,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_HandTrackingManager: {fileID: 552393799552732301}
-  OnHandFisted:
+  OnHandGestureChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1809443175}
         m_TargetAssemblyTypeName: HandGestureLogger, Assembly-CSharp
-        m_MethodName: OnHandFisted
+        m_MethodName: OnHandGestureChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2579,12 +2611,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnHandUnfisted:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1809443175}
-        m_TargetAssemblyTypeName: HandGestureLogger, Assembly-CSharp
-        m_MethodName: OnHandUnfisted
+      - m_Target: {fileID: 1717326448}
+        m_TargetAssemblyTypeName: NetworkPanelToggler, Assembly-CSharp
+        m_MethodName: OnHandGestureChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2667,6 +2696,7 @@ GameObject:
   - component: {fileID: 2006168860}
   - component: {fileID: 2006168859}
   - component: {fileID: 2006168858}
+  - component: {fileID: 2006168863}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2881,6 +2911,50 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &2006168863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2006168856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+  m_TaaSettings:
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!1 &2018809557
 GameObject:
   m_ObjectHideFlags: 0

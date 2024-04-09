@@ -1,24 +1,33 @@
 using UnityEngine;
 using UnityEngine.XR.Hands;
 using UnityEngine.Events;
+using System.Collections.Generic;
+
+public enum HandGesture
+{
+    None = 0,
+    Fisting = 1,
+    FacingDown = 2
+}
 
 public class HandGestureManager : MonoBehaviour
 {
     [SerializeField] private HandTrackingManager m_HandTrackingManager;
 
-    public bool IsLeftHandFisting => m_IsLeftHandFisting;
-
-    public bool IsRightHandFisting => m_IsRightHandFisting;
-
-    private bool m_IsLeftHandFisting;
-
-    private bool m_IsRightHandFisting;
+    private Dictionary<Handedness, HandGesture> m_HandGestures;
 
     private const float FINGER_MAX_DIST = 0.15f;
 
-    public UnityEvent<Handedness> OnHandFisted;
+    private const float FINGER_MIN_ANGLE = 40f;
 
-    public UnityEvent<Handedness> OnHandUnfisted;
+    public UnityEvent<Handedness, HandGesture, HandGesture> OnHandGestureChanged;
+
+    private void Start()
+    {
+        m_HandGestures = new();
+        m_HandGestures.Add(Handedness.Left, HandGesture.None);
+        m_HandGestures.Add(Handedness.Right, HandGesture.None);
+    }
 
     public void OnTrackingAcquired(Handedness handedness)
     {
@@ -27,42 +36,43 @@ public class HandGestureManager : MonoBehaviour
 
     public void OnTrackingLost(Handedness handedness)
     {
-        if (handedness == Handedness.Left && m_IsLeftHandFisting)
+        if (m_HandGestures[handedness] != HandGesture.None)
         {
-            m_IsLeftHandFisting = false;
-            OnHandUnfisted?.Invoke(Handedness.Left);
-        }
-        else if (handedness == Handedness.Right && m_IsRightHandFisting)
-        {
-            m_IsRightHandFisting = false;
-            OnHandUnfisted?.Invoke(Handedness.Right);
+            var prevGesture = m_HandGestures[handedness];
+            m_HandGestures[handedness] = HandGesture.None;
+            OnHandGestureChanged?.Invoke(handedness, prevGesture, HandGesture.None);
         }
     }
 
     public void OnUpdatedHand(Handedness handedness)
     {
         var hand = handedness == Handedness.Left ? m_HandTrackingManager.LeftHand : m_HandTrackingManager.RightHand;
-        bool isHandFisting = ValidateHandFisting(hand);
-
-        if (handedness == Handedness.Left && m_IsLeftHandFisting != isHandFisting)
+        if (IsFisting(hand))
         {
-            m_IsLeftHandFisting = isHandFisting;
-            if (m_IsLeftHandFisting)
-                OnHandFisted?.Invoke(Handedness.Left);
-            else
-                OnHandUnfisted?.Invoke(Handedness.Left);
+            OnHandGestureValidated(handedness, HandGesture.Fisting);
+            return;
         }
-        else if (handedness == Handedness.Right && m_IsRightHandFisting != isHandFisting)
+
+        if (IsFacingUp(hand))
         {
-            m_IsRightHandFisting = isHandFisting;
-            if (m_IsRightHandFisting)
-                OnHandFisted?.Invoke(Handedness.Right);
-            else
-                OnHandUnfisted?.Invoke(Handedness.Right);
+            OnHandGestureValidated(handedness, HandGesture.FacingDown);
+            return;
+        }
+
+        OnHandGestureValidated(handedness, HandGesture.None);
+    }
+
+    private void OnHandGestureValidated(Handedness handedness, HandGesture handGesture)
+    {
+        if (m_HandGestures[handedness] != handGesture)
+        {
+            var prevGesture = m_HandGestures[handedness];
+            m_HandGestures[handedness] = handGesture;
+            OnHandGestureChanged?.Invoke(handedness, prevGesture, handGesture);
         }
     }
 
-    private bool ValidateHandFisting(Hand hand)
+    private bool IsFisting(Hand hand)
     {
         var wrist = hand.GetHandJointPose(XRHandJointID.Wrist);
         var thumbTip = hand.GetHandJointPose(XRHandJointID.ThumbTip);
@@ -78,5 +88,20 @@ public class HandGestureManager : MonoBehaviour
         var littleDist = Vector3.Distance(wrist.position, littleTip.position);
 
         return thumbDist < FINGER_MAX_DIST && indexDist < FINGER_MAX_DIST && middleDist < FINGER_MAX_DIST && ringDist < FINGER_MAX_DIST && littleDist < FINGER_MAX_DIST;
+    }
+
+    private bool IsFacingUp(Hand hand)
+    {
+        var indexMetacarpal = hand.GetHandJointPose(XRHandJointID.IndexMetacarpal);
+        var middleMetacarpal = hand.GetHandJointPose(XRHandJointID.MiddleMetacarpal);
+        var ringMetacarpal = hand.GetHandJointPose(XRHandJointID.RingMetacarpal);
+        var littleMetacarpal = hand.GetHandJointPose(XRHandJointID.LittleMetacarpal);
+
+        var indexAngle = Vector3.Angle(-indexMetacarpal.up, Vector3.down);
+        var middleAngle = Vector3.Angle(-middleMetacarpal.up, Vector3.down);
+        var ringAngle = Vector3.Angle(-ringMetacarpal.up, Vector3.down);
+        var littleAngle = Vector3.Angle(-littleMetacarpal.up, Vector3.down);
+
+        return indexAngle < FINGER_MIN_ANGLE && middleAngle < FINGER_MIN_ANGLE && ringAngle < FINGER_MIN_ANGLE && littleAngle < FINGER_MIN_ANGLE;
     }
 }
