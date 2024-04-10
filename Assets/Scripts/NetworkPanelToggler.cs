@@ -10,9 +10,9 @@ public class NetworkPanelToggler : MonoBehaviour
         m_NetworkPanel.SetActive(false);
     }
 
-    public void OnHandGestureChanged(Handedness handedness, HandGesture oldGesture, HandGesture newGesture)
+    public void OnHandGestureChanged(Handedness handedness, HandGesture _, HandGesture newGesture)
     {
         if (handedness == Handedness.Left)
-            m_NetworkPanel.SetActive(newGesture == HandGesture.FacingDown);
+            m_NetworkPanel.SetActive(newGesture == HandGesture.FacingSelf);
     }
 }

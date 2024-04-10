@@ -7,7 +7,8 @@ public enum HandGesture
 {
     None = 0,
     Fisting = 1,
-    FacingDown = 2
+    FacingDown = 2,
+    FacingSelf = 3
 }
 
 public class HandGestureManager : MonoBehaviour
@@ -53,9 +54,15 @@ public class HandGestureManager : MonoBehaviour
             return;
         }
 
-        if (IsFacingUp(hand))
+        //if (IsFacingUp(hand))
+        //{
+        //    OnHandGestureValidated(handedness, HandGesture.FacingDown);
+        //    return;
+        //}
+
+        if (IsFacingSelf(hand))
         {
-            OnHandGestureValidated(handedness, HandGesture.FacingDown);
+            OnHandGestureValidated(handedness, HandGesture.FacingSelf);
             return;
         }
 
@@ -101,6 +108,25 @@ public class HandGestureManager : MonoBehaviour
         var middleAngle = Vector3.Angle(-middleMetacarpal.up, Vector3.down);
         var ringAngle = Vector3.Angle(-ringMetacarpal.up, Vector3.down);
         var littleAngle = Vector3.Angle(-littleMetacarpal.up, Vector3.down);
+
+        return indexAngle < FINGER_MIN_ANGLE && middleAngle < FINGER_MIN_ANGLE && ringAngle < FINGER_MIN_ANGLE && littleAngle < FINGER_MIN_ANGLE;
+    }
+
+    private bool IsFacingSelf(Hand hand)
+    {
+        var indexProximal = hand.GetHandJointPose(XRHandJointID.IndexProximal);
+        var middleProximal = hand.GetHandJointPose(XRHandJointID.MiddleProximal);
+        var ringProximal = hand.GetHandJointPose(XRHandJointID.RingProximal);
+        var littleProximal = hand.GetHandJointPose(XRHandJointID.LittleProximal);
+
+        Vector3 cameraForward = Camera.main.transform.forward;
+        cameraForward.y = 0f;
+        cameraForward = cameraForward.normalized;
+
+        var indexAngle = Vector3.Angle(-indexProximal.up, -cameraForward);
+        var middleAngle = Vector3.Angle(-middleProximal.up, -cameraForward);
+        var ringAngle = Vector3.Angle(-ringProximal.up, -cameraForward);
+        var littleAngle = Vector3.Angle(-littleProximal.up, -cameraForward);
 
         return indexAngle < FINGER_MIN_ANGLE && middleAngle < FINGER_MIN_ANGLE && ringAngle < FINGER_MIN_ANGLE && littleAngle < FINGER_MIN_ANGLE;
     }
