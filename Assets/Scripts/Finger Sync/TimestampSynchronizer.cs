@@ -8,6 +8,8 @@ public class TimestampSynchronizer : NetworkBehaviour
 {
     public bool HasSynced => m_HasSynced;
 
+    public float ResultTimestampOffset => m_ResultTimestampOffset;
+
     private bool m_IsSyncing = false;
 
     private bool m_HasSynced = false;
@@ -71,7 +73,7 @@ public class TimestampSynchronizer : NetworkBehaviour
                 m_TimestampOffsetQueue.Clear();
 
                 OnTimestampOffsetSynced?.Invoke(m_ResultTimestampOffset);
-                Debug.Log($"On TimestampOffset synced: {m_ResultTimestampOffset}");
+                Debug.Log($"On Timestamp synced: {m_ResultTimestampOffset}");
             }
             else
             {

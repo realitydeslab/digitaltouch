@@ -13,8 +13,6 @@ public enum HandGesture
 
 public class HandGestureManager : MonoBehaviour
 {
-    [SerializeField] private HandTrackingManager m_HandTrackingManager;
-
     private Dictionary<Handedness, HandGesture> m_HandGestures;
 
     private const float FINGER_MAX_DIST = 0.15f;
@@ -45,9 +43,8 @@ public class HandGestureManager : MonoBehaviour
         }
     }
 
-    public void OnUpdatedHand(Handedness handedness)
+    public void OnUpdatedHand(Handedness handedness, Hand hand)
     {
-        var hand = handedness == Handedness.Left ? m_HandTrackingManager.LeftHand : m_HandTrackingManager.RightHand;
         if (IsFisting(hand))
         {
             OnHandGestureValidated(handedness, HandGesture.Fisting);

@@ -29,7 +29,7 @@ public class HandTrackingManager : MonoBehaviour
     // Invoked when tracking is lost
     public UnityEvent<Handedness> OnTrackingLost;
 
-    public UnityEvent<Handedness> OnUpdatedHand;
+    public UnityEvent<Handedness, Hand> OnUpdatedHand;
 
     private void Start()
     {
@@ -123,7 +123,7 @@ public class HandTrackingManager : MonoBehaviour
                 }
             }
 
-            OnUpdatedHand?.Invoke(Handedness.Left);
+            OnUpdatedHand?.Invoke(Handedness.Left, m_LeftHand);
         }
 
         if ((updateSuccessFlags & XRHandSubsystem.UpdateSuccessFlags.RightHandJoints) != 0)
@@ -138,7 +138,7 @@ public class HandTrackingManager : MonoBehaviour
                 }
             }
 
-            OnUpdatedHand?.Invoke(Handedness.Right);
+            OnUpdatedHand?.Invoke(Handedness.Right, m_RightHand);
         }
     }
 }

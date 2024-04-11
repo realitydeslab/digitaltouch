@@ -3,11 +3,15 @@ using UnityEngine.XR.Hands;
 
 public class FingerSyncTrigger : MonoBehaviour
 {
+    [SerializeField] private FingerSyncManager m_FingerSyncManager;
+
     private bool m_IsSyncing = false;
 
     private bool m_IsFisting = false;
 
     private float m_FistingTime;
+
+    private Handedness m_Handedness;
 
     private const float FIST_THRESHOLD = 1f;
 
@@ -15,6 +19,7 @@ public class FingerSyncTrigger : MonoBehaviour
     {
         if (newGesture == HandGesture.Fisting) // Start finger sync
         {
+            m_Handedness = handedness;
             m_IsFisting = true;
             m_FistingTime = Time.time;
             return;
@@ -40,13 +45,13 @@ public class FingerSyncTrigger : MonoBehaviour
     private void StartFingerSync()
     {
         m_IsSyncing = true;
-        Debug.Log("Start finger sync");
+        m_FingerSyncManager.StartFingerSync(m_Handedness);
     }
 
     private void StopFingerSync()
     {
         m_IsFisting = false;
         m_IsSyncing = false;
-        Debug.Log($"Stop finger sync");
+        m_FingerSyncManager.StopFingerSync();
     }
 }
