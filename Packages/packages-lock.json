@@ -1,12 +1,5 @@
 {
   "dependencies": {
-    "com.community.netcode.transport.multipeer-connectivity": {
-      "version": "https://github.com/Unity-Technologies/multiplayer-community-contributions.git?path=/Transports/com.community.netcode.transport.multipeer-connectivity",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {},
-      "hash": "5cea8f048cc16f3575fabcf03af3ebafbc390499"
-    },
     "com.unity.burst": {
       "version": "1.8.21",
       "depth": 2,
@@ -275,7 +268,7 @@
       }
     },
     "com.unity.timeline": {
-      "version": "1.8.7",
+      "version": "1.8.8",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -444,6 +437,16 @@
         "com.unity.netcode.gameobjects": "1.8.1",
         "com.unity.shadergraph": "14.0.10"
       }
+    },
+    "org.realitydeslab.netcode.transport.multipeer-connectivity": {
+      "version": "1.2.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.netcode.gameobjects": "2.0.0",
+        "com.unity.transport": "2.3.0"
+      },
+      "url": "https://package.openupm.com"
     },
     "com.unity.modules.accessibility": {
       "version": "1.0.0",

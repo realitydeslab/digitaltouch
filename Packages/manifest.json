@@ -1,13 +1,23 @@
 {
+  "scopedRegistries": [
+    {
+      "name": "OpenUPM",
+      "url": "https://package.openupm.com",
+      "scopes": [
+        "org.realitydeslab"
+      ],
+      "overrideBuiltIns": true
+    }
+  ],
   "dependencies": {
-    "com.community.netcode.transport.multipeer-connectivity": "https://github.com/Unity-Technologies/multiplayer-community-contributions.git?path=/Transports/com.community.netcode.transport.multipeer-connectivity",
+    "org.realitydeslab.netcode.transport.multipeer-connectivity": "1.2.0",
     "com.unity.collab-proxy": "2.8.2",
     "com.unity.feature.development": "1.0.2",
     "com.unity.multiplayer.center": "1.0.0",
     "com.unity.netcode.gameobjects": "2.4.2",
     "com.unity.polyspatial.visionos": "2.3.1",
     "com.unity.polyspatial.xr": "2.3.1",
-    "com.unity.timeline": "1.8.7",
+    "com.unity.timeline": "1.8.8",
     "com.unity.ugui": "2.0.0",
     "com.unity.visualscripting": "1.9.8",
     "com.unity.xr.interaction.toolkit": "3.1.2",
