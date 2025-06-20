@@ -83,7 +83,7 @@ namespace HoloKit.ImageTrackingRelocalization
 
         private void StopRelocalization()
         {
-            //m_ARTrackedImageManager.enabled = false;
+            m_ARTrackedImageManager.enabled = false;
             m_ARTrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
             m_TrackedImagePoses = null;
             m_IsRelocalizing = false;
