@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3955275944639772205}
   - component: {fileID: 9016028354839299437}
-  - component: {fileID: 2807226765063477491}
-  - component: {fileID: 3563935169512937529}
+  - component: {fileID: 7771642315711608252}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2085810799
+  GlobalObjectIdHash: 3402796366
   InScenePlacedSourceGlobalObjectIdHash: 0
   DeferredDespawnTick: 0
   Ownership: 1
@@ -59,24 +58,7 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &2807226765063477491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5604317268201126457}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 73a5ff0961f4c45f488282a14b6b3d19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ShowTopMostFoldoutHeaderGroup: 1
-  leftHand: {fileID: 0}
-  rightHand: {fileID: 0}
-  handJointSynchronizerPrefab: {fileID: 525045494600567823, guid: c6df8655efdc34065afedb7b2f97840d, type: 3}
-  enableDebugLogs: 1
---- !u!114 &3563935169512937529
+--- !u!114 &7771642315711608252
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,12 +67,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 5604317268201126457}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7be552ddac124983ae1ae62c8a6c2f1, type: 3}
+  m_Script: {fileID: 11500000, guid: ad379873853334ef1b064e773c909c63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
+  autoFindHands: 1
   leftHandRoot: {fileID: 0}
   rightHandRoot: {fileID: 0}
-  handJointSynchronizerPrefab: {fileID: 525045494600567823, guid: c6df8655efdc34065afedb7b2f97840d, type: 3}
-  networkHandJointPrefab: {fileID: 7395038554944172922, guid: 4c11c60d1f28844c1ad55dcde7a8cab3, type: 3}
-  enableDebugLogs: 1
+  jointVisualizationPrefab: {fileID: 7395038554944172922, guid: 4c11c60d1f28844c1ad55dcde7a8cab3, type: 3}
+  jointSize: 0.02
