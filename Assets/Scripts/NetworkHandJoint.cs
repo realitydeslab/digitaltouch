@@ -4,15 +4,15 @@ using System;
 
 public class NetworkHandJoint : NetworkBehaviour
 {
-    private NetworkVariable<Vector3> m_HandJointPosition = new(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    [SerializeField] private NetworkVariable<Vector3> m_HandJointPosition = new(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-    private NetworkVariable<Quaternion> m_HandJointRotation = new(Quaternion.identity, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    [SerializeField] private NetworkVariable<Quaternion> m_HandJointRotation = new(Quaternion.identity, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
-    private Transform m_HandJoint;
+    public Transform m_HandJoint;
 
-    private Transform m_WorldRoot;
-    
-    public int HandJointIndex{ get; set; }
+    [SerializeField] private Transform m_WorldRoot;
+
+    public int HandJointIndex;
 
     public override void OnNetworkSpawn()
     {
@@ -35,10 +35,11 @@ public class NetworkHandJoint : NetworkBehaviour
     {
         // 修复索引计算 - HandJointIndex 已经包含了客户端偏移
         string targetName = $"Hand Joint Synchronizer {HandJointIndex}";
+        
         int maxRetries = 30; // 最多等待3秒
         int retries = 0;
         
-        Debug.Log($"[NetworkHandJoint] Looking for {targetName} for OwnerClientId {OwnerClientId}");
+        //Debug.Log($"[NetworkHandJoint] Looking for {targetName} for OwnerClientId {OwnerClientId}");
         
         while (retries < maxRetries)
         {
@@ -48,7 +49,13 @@ public class NetworkHandJoint : NetworkBehaviour
                 if (syncObject.TryGetComponent<HandJointSynchronizer>(out HandJointSynchronizer synchronizer))
                 {
                     m_HandJoint = synchronizer.m_HandJoint;
-                    Debug.Log($"[NetworkHandJoint] Successfully found HandJoint for index {HandJointIndex}, Owner: {OwnerClientId}");
+                    //Debug.Log($"[NetworkHandJoint] Successfully found HandJoint for index {HandJointIndex}, Owner: {OwnerClientId}");
+                    yield break;
+                }
+                if (syncObject.TryGetComponent<SimpleHandJointSynchronizer>(out SimpleHandJointSynchronizer simpleSynchronizer))
+                {
+                    m_HandJoint = simpleSynchronizer.m_HandJoint;
+                    //Debug.Log($"[NetworkHandJoint] Successfully found HandJoint for index {HandJointIndex}, Owner: {OwnerClientId}");
                     yield break;
                 }
             }
@@ -91,6 +98,7 @@ public class NetworkHandJoint : NetworkBehaviour
         if (!IsOwner)
         {
             transform.position = m_WorldRoot.TransformPoint(newValue);
+            //Debug.Log("Not owner position change");
         }
     }
 
@@ -99,6 +107,8 @@ public class NetworkHandJoint : NetworkBehaviour
         if (!IsOwner)
         {
             transform.rotation = m_WorldRoot.rotation * newValue;
+            //Debug.Log("Not owner rotation change");
+
         }   
     }
 }

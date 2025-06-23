@@ -71,15 +71,15 @@ public class PlayerHandNetworkManager : NetworkBehaviour
         }
         
         // 如果还没找到，尝试带玩家ID的命名
-        if (leftHandRoot == null)
-        {
-            leftHandRoot = GameObject.Find($"Left Hand Player {OwnerClientId}");
-        }
+        // if (leftHandRoot == null)
+        // {
+        //     leftHandRoot = GameObject.Find($"Left Hand Player {OwnerClientId}");
+        // }
         
-        if (rightHandRoot == null)
-        {
-            rightHandRoot = GameObject.Find($"Right Hand Player {OwnerClientId}");
-        }
+        // if (rightHandRoot == null)
+        // {
+        //     rightHandRoot = GameObject.Find($"Right Hand Player {OwnerClientId}");
+        // }
         
         if (enableDebugLogs)
         {
@@ -110,10 +110,8 @@ public class PlayerHandNetworkManager : NetworkBehaviour
 
     private void CreateHandJointSynchronizer(Transform jointTransform, string handType, ulong playerId)
     {
-        // 创建本地的 HandJointSynchronizer
         GameObject syncObject = Instantiate(handJointSynchronizerPrefab, jointTransform);
         
-        // 创建唯一的标识符：玩家ID * 1000 + 关节索引
         int uniqueJointIndex = (int)(playerId * 1000) + jointCounter;
         syncObject.name = $"Hand Joint Synchronizer {uniqueJointIndex}";
         
