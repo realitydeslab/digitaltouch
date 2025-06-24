@@ -16,12 +16,12 @@ public class DebugManager : MonoBehaviour
 
     private void Start()
     {
-        if (Application.platform != RuntimePlatform.OSXEditor)
-        {
-            Destroy(m_DebugPanel);
-            Destroy(gameObject);
-            return;
-        }
+        // if (Application.platform != RuntimePlatform.OSXEditor)
+        // {
+        //     Destroy(m_DebugPanel);
+        //     Destroy(gameObject);
+        //     return;
+        // }
 
         m_LeftHand.gameObject.SetActive(true);
         m_LeftHand.transform.position = new Vector3(0f, 0f, 1f);
