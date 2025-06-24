@@ -12,10 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87fdc71f48fec416ba6b375d53aba3b8, type: 3}
   m_Name: VisionOSSettings
   m_EditorClassIdentifier: 
-  m_AppMode: 1
+  m_AppMode: 0
   m_HandsTrackingUsageDescription: Require hand data.
   m_WorldSensingUsageDescription: Require world data.
   m_RuntimeSettings: {fileID: 11400000, guid: 8a78c00412697422ba172b79e0365ba1, type: 2}
   m_UpperLimbVisibility: 0
+  m_HighQualityRecordingMode: 0
   m_FoveatedRendering: 1
+  m_MetalImmersionStyle: 0
+  m_RealityKitImmersionStyle: 0
+  m_MetalImmersiveOverlays: 0
+  m_RealityKitImmersiveOverlays: 0
   m_IL2CPPLargeExeWorkaround: 0
+  m_UseACTool: 0
