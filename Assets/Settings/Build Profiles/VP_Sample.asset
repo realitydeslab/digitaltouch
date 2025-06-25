@@ -20,8 +20,12 @@ MonoBehaviour:
     rid: 5616279544490623056
   m_OverrideGlobalSceneList: 1
   m_Scenes:
+  - m_enabled: 0
+    m_path: Assets/Samples/Apple visionOS XR Plugin/2.3.1/Metal Sample - URP/Scenes/InputSystem
+      UI.unity
   - m_enabled: 1
-    m_path: Assets/Scenes/Main.unity
+    m_path: Assets/Samples/Apple visionOS XR Plugin/2.3.1/Metal Sample - URP/Scenes/InputSystem
+      UI 1.unity
   m_ScriptingDefines: []
   m_PlayerSettingsYaml:
     m_Settings: []
