@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Solo_test.unity
     guid: 590ca3c81e6b24d03a052e6cde2719b9
   - enabled: 0
-    path: Assets/Scenes/Dual_main.unity
+    path: Assets/Scenes/Dual_Built-in.unity
     guid: abb39f5c5d19f419e838c02f88d0b373
   - enabled: 0
     path: Assets/Scenes/InputSystem UI.unity
