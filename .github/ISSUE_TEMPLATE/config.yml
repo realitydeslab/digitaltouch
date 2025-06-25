@@ -1,8 +1,21 @@
-blank_issues_enabled: true
+# config.yml
+blank_issues_enabled: true # 或者 false，取决于你是否想让用户创建空白 Issue
 contact_links:
   - name: GitHub Community Support
     url: https://github.com/orgs/community/discussions
     about: Please ask and answer questions here.
   - name: GitHub Security Bug Bounty
-    url: https://bounty.github.com/
+    url: https://docs.github.com/code-security/security-advisories/guidance-on-reporting-and-receiving-credits/github-security-bug-bounty-program
     about: Please report security vulnerabilities here.
+
+# 明确列出你要显示的模板及其顺序
+issue_template:
+  - name: Feature Design Proposal
+    description: Propose and outline a new feature or significant enhancement for the project.
+    path: 1-feature_design.yml
+  - name: Bug Report
+    description: Report a reproducible bug or unexpected behavior.
+    path: 2-bug.yml
+  - name: Feature Completion & Merge Request # 这是你需要添加的条目
+    description: Request to merge a completed feature into the main branch.
+    path: 3-feature_complete.yml
