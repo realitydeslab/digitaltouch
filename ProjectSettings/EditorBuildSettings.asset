@@ -8,9 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Solo_test.unity
     guid: 590ca3c81e6b24d03a052e6cde2719b9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Dual_main.unity
     guid: abb39f5c5d19f419e838c02f88d0b373
+  - enabled: 0
+    path: Assets/Scenes/InputSystem UI.unity
+    guid: 81221d99ef10e44acb19f73e7f0884d2
+  - enabled: 1
+    path: Assets/Scenes/Dual_URP.unity
+    guid: c4dd0ec35f60f4f96a1120a605458a31
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 3511d94a2e5854166b56fbea31e9517a, type: 2}
     UnityEditor.XR.VisionOS.VisionOSSettings: {fileID: 11400000, guid: cc717b1488b3f40fa93e97cef46b2685, type: 2}
