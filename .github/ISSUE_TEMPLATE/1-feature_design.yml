@@ -1,0 +1,109 @@
+name: Feature Design Proposal
+description: Propose and outline a new feature or significant enhancement for the project.
+title: "[Feature Design]: "
+labels: ["feature", "design-discussion"] # Added 'design-discussion' label to distinguish from simple feature requests.
+projects: []
+assignees: [] # Removed default assignee. Feature design often involves team discussion before assigning.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to propose a new feature! Please provide as much detail as possible to help us understand and evaluate your idea.
+
+        ---
+
+  - type: input
+    id: short-summary
+    attributes:
+      label: Short Summary
+      description: Provide a concise, one-sentence summary of the proposed feature and what problem it addresses.
+      placeholder: "e.g., Allow users to customize their profile page."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem-statement
+    attributes:
+      label: Problem Statement
+      description: What specific problem or user need does this feature aim to solve? Describe the current pain point or limitation.
+      placeholder: "Describe the current user pain point or system deficiency."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: Describe in detail how this new feature would work and what specific functionalities it would provide. Explain the core concept and user interaction flow.
+      placeholder: "Explain the core concept, how users would interact with it, and what modules might be involved."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: Define the specific conditions that must be met for this feature to be considered "complete." Be as specific as possible, potentially using user stories.
+      placeholder: |
+        Example:
+        - As a user, I can click "Edit Profile" to access the editing page.
+        - Users can modify their username, email, and avatar.
+        - Upon successful save, a "Profile updated successfully" message is displayed.
+    validations:
+      required: false # Can be filled in later during detailed design.
+
+  - type: textarea
+    id: technical-considerations
+    attributes:
+      label: Technical Considerations (Optional)
+      description: Are there any initial thoughts on technical design, potential challenges, or dependencies?
+      placeholder: "Write here..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: impact-and-risks
+    attributes:
+      label: Potential Impact & Risks
+      description: Consider any potential impacts on the existing system or users, and any foreseen risks associated with this feature.
+      options:
+        - label: Might affect existing user experience
+        - label: Potential performance risks
+        - label: Potential security risks
+    validations:
+      required: false
+
+  - type: input
+    id: priority-suggestion
+    attributes:
+      label: Suggested Priority
+      description: What do you believe is the priority level for this feature? (e.g., High, Medium, Low)
+      placeholder: "e.g., High / Medium / Low"
+    validations:
+      required: false
+
+  - type: input
+    id: eta-suggestion
+    attributes:
+      label: Estimated Time/Effort (Optional)
+      description: If you have an initial estimate, please provide the estimated development time or effort.
+      placeholder: "e.g., 2-3 days / 1 week"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-notes
+    attributes:
+      label: Additional Notes (Optional)
+      description: Any other information, thoughts, or questions you believe are relevant.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true

@@ -1,64 +1,104 @@
 name: Bug Report
-description: File a bug report.
+description: Report a reproducible bug or unexpected behavior.
 title: "[Bug]: "
-labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
+labels: ["bug", "triage"] # Keep 'bug' and 'triage' for quick categorization.
+projects: [] # Keep this empty to allow project managers to assign later.
+assignees: [] # Keep this empty to allow triagers to assign later.
+
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thanks for taking the time to file a bug report! To help us fix the issue quickly, please provide as much detail as possible.
+
+        ---
+
   - type: input
-    id: contact
+    id: short-summary
     attributes:
-      label: Contact Details
-      description: How can we get in touch with you if we need more info?
-      placeholder: ex. email@example.com
-    validations:
-      required: false
-  - type: textarea
-    id: what-happened
-    attributes:
-      label: What happened?
-      description: Also tell us, what did you expect to happen?
-      placeholder: Tell us what you see!
-      value: "A bug happened!"
+      label: Short Summary
+      description: Provide a concise, one-sentence summary of the bug.
+      placeholder: "e.g., Login button does nothing on mobile devices."
     validations:
       required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Detailed Description
+      description: Explain the bug in detail. What did you expect to happen, and what actually happened?
+      placeholder: "Describe the unexpected behavior and contrast it with the expected behavior."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction-steps
+    attributes:
+      label: Steps to Reproduce
+      description: |
+        Please provide clear, step-by-step instructions to reproduce the bug.
+        The more precise you are, the faster we can investigate and fix it.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or Videos (Optional)
+      description: If applicable, add screenshots or a short video to help explain your problem. You can drag and drop files directly into this field.
+      placeholder: "Drag and drop images or videos here."
+    validations:
+      required: false
+
   - type: dropdown
     id: version
     attributes:
-      label: Version
-      description: What version of our software are you running?
+      label: Affected Version
+      description: What version of our software are you running or on which version did you observe this bug?
       options:
-        - 1.0.2 (Default)
-        - 1.0.3 (Edge)
+        - "Latest Release (e.g., v1.0.2)" # More dynamic wording
+        - "Development/Edge (unreleased)"
+        - "Specific Version (please specify in notes)"
       default: 0
     validations:
       required: true
-  - type: dropdown
-    id: browsers
-    attributes:
-      label: What browsers are you seeing the problem on?
-      multiple: true
-      options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+
+  # - type: textarea
+  #   id: environment
+  #   attributes:
+  #     label: Environment Details
+  #     description: |
+  #       Provide details about your operating system, browser, device, and any other relevant environment information.
+  #       - **OS:** (e.g., Windows 11, macOS Sonoma 14.4, Ubuntu 22.04)
+  #       - **Browser:** (e.g., Chrome 125, Firefox 126, Safari 17)
+  #       - **Device:** (e.g., Desktop, iPhone 15, Samsung Galaxy S24)
+  #       - **Other relevant software/hardware:** (e.g., Node.js v18, specific external monitor)
+  #     placeholder: |
+  #       - OS: macOS Sonoma 14.4
+  #       - Browser: Chrome 125.0.6422.141
+  #       - Device: MacBook Pro M2
+  #     validations:
+  #       required: true
+
   - type: textarea
     id: logs
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
+      label: Relevant Log Output or Error Messages (Optional)
+      description: Please copy and paste any relevant console logs, server logs, or specific error messages. This will be automatically formatted into code.
+      render: shell # This will render the content as a shell code block
+    validations:
+      required: false
+
   - type: checkboxes
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com). 
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com).
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
