@@ -2,23 +2,30 @@ using UnityEngine;
 
 public abstract class BaseVFXControl : MonoBehaviour
 {
+    public float distance = 0f;
+    public Vector3 centerPosition = Vector3.zero;
+    public bool dataAvailable = false;
     protected virtual void Update()
     {
-        float distance = 0f;
-        Vector3 centerPosition = Vector3.zero;
-        bool dataAvailable = false;
+
 
         if (NetworkHandsRelationManager.Instance != null)
         {
+            Debug.Log("Networking Instance");
             distance = NetworkHandsRelationManager.Instance.networkDistance.Value;
             centerPosition = NetworkHandsRelationManager.Instance.networkCenterPosition.Value;
             dataAvailable = true;
         }
         else if (LocalHandsRelationManager.Instance != null)
         {
+            Debug.Log("Local Instance");
             distance = LocalHandsRelationManager.Instance.CurrentDistance;
             centerPosition = LocalHandsRelationManager.Instance.CurrentCenterPosition;
             dataAvailable = true;
+        }
+        else
+        {
+            Debug.Log("No Instance");
         }
 
         if (dataAvailable)

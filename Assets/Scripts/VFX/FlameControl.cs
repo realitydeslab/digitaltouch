@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class NetworkFlameControl : BaseVFXControl 
+public class FlameControl : BaseVFXControl 
 {
     public VisualEffect Flame;
     public float baseScale = 0.01f;

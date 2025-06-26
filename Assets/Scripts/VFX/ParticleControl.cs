@@ -1,6 +1,7 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
-public class ParticleControl_withEvent : BaseVFXControl_withEvent
+public class ParticleControl : BaseVFXControl
 {
     public ParticleSystem m_ParticleSystem;
 
@@ -23,25 +24,24 @@ public class ParticleControl_withEvent : BaseVFXControl_withEvent
 
     }
 
-    public override void OnPalmsRelationUpdated(float distance, Vector3 centerPosition)
+    public override void OnRelationDataUpdated(float distance, Vector3 centerPosition)
     {
-        if (distance <= 0.05)
-        {
-            m_ParticleSystem.Pause(true);
-        }
-        else
-        {
-            if (m_ParticleSystem.isPaused)
-                m_ParticleSystem.Pause(false);
-        }
+        // if (distance <= 0.05)
+        // {
+        //     m_ParticleSystem.Pause(true);
+        // }
+        // else
+        // {
+        //     if (m_ParticleSystem.isPaused)
+        //         m_ParticleSystem.Pause(false);
+        // }
         float speed = distance * scaleSensitivity;
         SetParticleStartSpeed(speed);
-
     }
-
+    
     public void SetParticleStartSpeed(float speed)
-        {
-            var mainModule = m_ParticleSystem.main;
-            mainModule.simulationSpeed = speed;
-        }
+    {
+        var mainModule = m_ParticleSystem.main;
+        mainModule.simulationSpeed = speed;
+    }
 }

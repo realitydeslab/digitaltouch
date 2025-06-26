@@ -1,65 +1,69 @@
 using UnityEngine;
 using Unity.Netcode;
+using System;
 
-public class Dual_VFX_UIControl : NetworkBehaviour
+public class Dual_VFX_UIControl : MonoBehaviour
 {
-    [Header("VFX References")]
     public BaseVFXControl Flame;
+
     public BaseVFXControl Particle;
 
-    private NetworkVariable<bool> networkIsFlameEnable = new NetworkVariable<bool>(false);
-    private NetworkVariable<bool> networkIsParticleEnable = new NetworkVariable<bool>(false);
+    private bool isFlameEnable = false;
+    private bool isParticleEnable = false;
+    public static event Action<bool> OnFlameEnableChange;
+    public static event Action<bool> OnParticleEnableChange;
 
-    public override void OnNetworkSpawn()
-    {
-        networkIsFlameEnable.OnValueChanged += OnFlameStateChanged;
-        networkIsParticleEnable.OnValueChanged += OnParticleStateChanged;
-
-        OnFlameStateChanged(false, networkIsFlameEnable.Value);
-        OnParticleStateChanged(false, networkIsParticleEnable.Value);
-    }
-
-    public override void OnNetworkDespawn()
-    {
-        networkIsFlameEnable.OnValueChanged -= OnFlameStateChanged;
-        networkIsParticleEnable.OnValueChanged -= OnParticleStateChanged;
-    }
-
-    private void OnFlameStateChanged(bool previousValue, bool currentValue)
+    private void Start()
     {
         if (Flame != null)
         {
-            Flame.enabled = currentValue;
+            Flame.enabled = isFlameEnable;
         }
-    }
-
-    private void OnParticleStateChanged(bool previousValue, bool currentValue)
-    {
         if (Particle != null)
         {
-            Particle.enabled = currentValue;
+            Particle.enabled = isParticleEnable;
         }
     }
 
     public void ToggleFlame()
     {
-        ToggleFlameServerRpc();
+        isFlameEnable = !isFlameEnable;
+        Flame.enabled = isFlameEnable;
+        OnFlameEnableChange?.Invoke(isFlameEnable);
     }
 
     public void ToggleParticle()
     {
-        ToggleParticleServerRpc();
+        isParticleEnable = !isParticleEnable;
+        Particle.enabled = isParticleEnable;
+        OnParticleEnableChange?.Invoke(isParticleEnable);
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void ToggleFlameServerRpc()
+    public void SetFlame(bool state)
     {
-        networkIsFlameEnable.Value = !networkIsFlameEnable.Value;
+        if (isFlameEnable == state)
+        {
+            return;
+        }
+        else
+        {
+            isFlameEnable = state;
+            Flame.enabled = isFlameEnable;
+        }
+        // OnFlameEnableChange?.Invoke(isFlameEnable);
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void ToggleParticleServerRpc()
+    public void SetParticle(bool state)
     {
-        networkIsParticleEnable.Value = !networkIsParticleEnable.Value;
+        if (isParticleEnable == state)
+        {
+            return;
+        }
+        else
+        {
+            isParticleEnable = state;
+            Particle.enabled = isParticleEnable;
+        }
+        // OnParticleEnableChange?.Invoke(isParticleEnable);
     }
 }

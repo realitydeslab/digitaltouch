@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class FlameControl : BaseVFXControl_withEvent
+public class FlameControl_withEvent : BaseVFXControl_withEvent
 {
     public VisualEffect vfx;
 
