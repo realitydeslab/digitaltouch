@@ -1,29 +1,3 @@
-// using UnityEngine;
-
-// public class PassthroughManager : MonoBehaviour
-// {
-//     public Camera m_Camera;
-
-//     private void Start()
-//     {
-//         m_Camera.clearFlags = CameraClearFlags.Skybox;
-//     }
-//     public void TogglePassthrough()
-//     {
-//         if (m_Camera.clearFlags == CameraClearFlags.Skybox)
-//         {
-//             m_Camera.clearFlags = CameraClearFlags.Color;
-//             m_Camera.backgroundColor = Color.clear;
-//         }
-//         else
-//         {
-//             m_Camera.clearFlags = CameraClearFlags.Skybox;
-
-//         }
-
-//     }
-// }
-
 using UnityEngine;
 using System.Collections; 
 
@@ -41,8 +15,8 @@ public class PassthroughManager : MonoBehaviour
     private void Start()
     {
         m_Camera.clearFlags = CameraClearFlags.Color;
-        m_Camera.backgroundColor = backgroundColor;
-        isTransparent = false;
+        m_Camera.backgroundColor = Color.clear;
+        isTransparent = true;
     }
 
     public void TogglePassthrough() 
