@@ -28,7 +28,7 @@ body:
       description: What specific problem or user need does this feature aim to solve? Describe the current pain point or limitation.
       placeholder: "Describe the current user pain point or system deficiency."
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: proposed-solution
@@ -37,7 +37,7 @@ body:
       description: Describe in detail how this new feature would work and what specific functionalities it would provide. Explain the core concept and user interaction flow.
       placeholder: "Explain the core concept, how users would interact with it, and what modules might be involved."
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: acceptance-criteria

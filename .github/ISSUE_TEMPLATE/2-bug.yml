@@ -29,7 +29,7 @@ body:
       description: Explain the bug in detail. What did you expect to happen, and what actually happened?
       placeholder: "Describe the unexpected behavior and contrast it with the expected behavior."
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: reproduction-steps
@@ -44,7 +44,7 @@ body:
         3. Scroll down to '....'
         4. See error
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: screenshots

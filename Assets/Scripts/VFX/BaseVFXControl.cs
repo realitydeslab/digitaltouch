@@ -11,21 +11,17 @@ public abstract class BaseVFXControl : MonoBehaviour
 
         if (NetworkHandsRelationManager.Instance != null)
         {
-            Debug.Log("Networking Instance");
+            // Debug.Log("Networking Instance");
             distance = NetworkHandsRelationManager.Instance.networkDistance.Value;
             centerPosition = NetworkHandsRelationManager.Instance.networkCenterPosition.Value;
             dataAvailable = true;
         }
         else if (LocalHandsRelationManager.Instance != null)
         {
-            Debug.Log("Local Instance");
+            // Debug.Log("Local Instance");
             distance = LocalHandsRelationManager.Instance.CurrentDistance;
             centerPosition = LocalHandsRelationManager.Instance.CurrentCenterPosition;
             dataAvailable = true;
-        }
-        else
-        {
-            Debug.Log("No Instance");
         }
 
         if (dataAvailable)
