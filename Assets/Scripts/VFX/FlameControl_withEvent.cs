@@ -1,26 +1,31 @@
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class NetworkFlameControl : NetworkBaseVFXControl 
+public class FlameControl : BaseVFXControl_withEvent
 {
-    public VisualEffect Flame;
+    public VisualEffect vfx;
+
     public float baseScale = 0.01f;
-    [Tooltip("Sensitivity")]
+    [Tooltip("sensitivity")]
     public float scaleSensitivity = 0.5f;
 
     protected override void OnEnable()
     {
         base.OnEnable();
-        Flame.enabled = true;
+        vfx.enabled = true;
+        Debug.Log("Flame is enabled");
+
     }
 
     protected override void OnDisable()
     {
-        Flame.enabled = false;
+        vfx.enabled = false;
         base.OnDisable();
+        Debug.Log("Flame is disabled");
+
     }
 
-    public override void OnRelationDataUpdated(float distance, Vector3 centerPosition)
+    public override void OnPalmsRelationUpdated(float distance, Vector3 centerPosition)
     {
         transform.position = centerPosition;
 

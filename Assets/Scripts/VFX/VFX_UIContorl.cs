@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class VFX_UIContorl : MonoBehaviour
 {
-    public BaseVFXControl Flame;
+    public BaseVFXControl_withEvent Flame;
 
-    public BaseVFXControl Particle;
+    public BaseVFXControl_withEvent Particle;
 
     private bool isFlameEnable = false;
     private bool isParticleEnable = false;

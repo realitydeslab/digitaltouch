@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FarticleControl : BaseVFXControl
+public class FarticleControl : BaseVFXControl_withEvent
 {
     public ParticleSystem m_ParticleSystem;
 

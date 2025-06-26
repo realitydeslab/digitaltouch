@@ -14,9 +14,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Dual_URP.unity
     guid: c4dd0ec35f60f4f96a1120a605458a31
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Solo_URP.unity
     guid: 9fa050fced9a84300b1a5cc639a8805a
+  - enabled: 1
+    path: Assets/Scenes/Dual_VFX.unity
+    guid: 2ced9e4a0a6a4469bbb2f639f0e5166a
   m_configObjects:
     UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 3511d94a2e5854166b56fbea31e9517a, type: 2}
     UnityEditor.XR.VisionOS.VisionOSSettings: {fileID: 11400000, guid: cc717b1488b3f40fa93e97cef46b2685, type: 2}
