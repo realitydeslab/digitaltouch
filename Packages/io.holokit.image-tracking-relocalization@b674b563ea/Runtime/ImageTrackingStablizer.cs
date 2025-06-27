@@ -16,6 +16,7 @@ namespace HoloKit.ImageTrackingRelocalization
         public Vector3 Position;
         public Quaternion Rotation;
         public double Timestamp;
+        
 
         public TrackedImagePoseData(Vector3 position, Quaternion rotation, double timestamp)
         {
@@ -38,6 +39,8 @@ namespace HoloKit.ImageTrackingRelocalization
                     StopRelocalization();
             }
         }
+
+        public UnityEvent<float> OnProgressUpdated;
 
         [Tooltip("The maximum timestamp gap between two consecutive tracked image poses.")]
         [SerializeField] private double m_MaxTimestampGap = 1.5f;
@@ -87,6 +90,7 @@ namespace HoloKit.ImageTrackingRelocalization
             m_ARTrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
             m_TrackedImagePoses = null;
             m_IsRelocalizing = false;
+            OnProgressUpdated?.Invoke(0f); // 停止时重置进度
         }
 
         private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
@@ -104,11 +108,19 @@ namespace HoloKit.ImageTrackingRelocalization
 
                     CleanUpOldPoses();
 
+                    // 在这里触发进度更新事件
+                    if (m_DesiredNumOfSamples > 0) // 避免除以零
+                    {
+                        OnProgressUpdated?.Invoke((float)m_TrackedImagePoses.Count / m_DesiredNumOfSamples);
+                    }
+
                     if (m_TrackedImagePoses.Count >= m_DesiredNumOfSamples)
                     {
                         CalculateStableTrackedImagePose();
                     }
                 }
+
+                
             }
         }
 
@@ -168,15 +180,32 @@ namespace HoloKit.ImageTrackingRelocalization
             {
                 // Remove the oldest pose
                 m_TrackedImagePoses.Dequeue();
+                if (m_DesiredNumOfSamples > 0)
+                {
+                    OnProgressUpdated?.Invoke((float)m_TrackedImagePoses.Count / m_DesiredNumOfSamples);
+                }
                 return;
             }
 
             // We temporarily take the last pose as the final one
             Vector3 finalPosition = m_TrackedImagePoses.Last().Position;
             Quaternion finalRotation = m_TrackedImagePoses.Last().Rotation;
-            Debug.Log($"[ImageTrackingRelocalizationManager] finalPosition: {finalPosition}, finalRotation: {finalRotation}");
             StopRelocalization();
+            OnProgressUpdated?.Invoke(1f);
+            Debug.Log($"[ImageTrackingRelocalizationManager] finalPosition: {finalPosition}, finalRotation: {finalRotation}");
             OnTrackedImagePoseStablized?.Invoke(finalPosition, finalRotation);
         }
+
+        // public float CurrentProgress
+        // {
+        //     get
+        //     {
+        //         if (!m_IsRelocalizing || m_TrackedImagePoses == null || m_DesiredNumOfSamples == 0)
+        //         {
+        //             return 0f; // 如果未开始重定位或目标样本数为0，则进度为0
+        //         }
+        //         return (float)m_TrackedImagePoses.Count / m_DesiredNumOfSamples;
+        //     }
+        // }
     }
 }

@@ -14,4 +14,9 @@ public class FaceCamera : MonoBehaviour
         eulerAngles.z = 0f;
         transform.eulerAngles = eulerAngles;
     }
+
+    public void SetCamera(Transform newCamera)
+    {
+        m_MainCamera = newCamera;
+    }
 }
