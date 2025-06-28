@@ -3,7 +3,7 @@ using System;
 
 public class HandsRelationManager : MonoBehaviour
 {
-    [SerializeField] float distance;
+    public float Distance;
     [Header("Left Hand Joint Transforms")]
     public Transform leftHandPalm;
     public Transform leftHandWrist;
@@ -28,16 +28,16 @@ public class HandsRelationManager : MonoBehaviour
     {
         if (leftIndexTip != null && rightIndexTip != null)
         {
-            distance = Vector3.Distance(leftIndexTip.position, rightIndexTip.position);
+            Distance = Vector3.Distance(leftIndexTip.position, rightIndexTip.position);
 
             Vector3 centerPosition = Vector3.Lerp(leftIndexTip.position, rightIndexTip.position, 0.5f);
 
-            OnIndexesRelationUpdate?.Invoke(distance, centerPosition);
+            OnIndexesRelationUpdate?.Invoke(Distance, centerPosition);
 
             // for test
             if (OnIndexesRelationUpdate != null)
             {
-                Debug.Log($"distance: {distance}");
+                Debug.Log($"distance: {Distance}");
             }
         }
     }
