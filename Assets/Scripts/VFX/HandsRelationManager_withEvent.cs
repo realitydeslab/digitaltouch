@@ -42,10 +42,10 @@ public class HandsRelationManager : MonoBehaviour
             OnIndexesRelationUpdate?.Invoke(Distance, centerPosition);
 
             // for test
-            if (OnIndexesRelationUpdate != null)
-            {
-                Debug.Log($"distance: {Distance}");
-            }
+            // if (OnIndexesRelationUpdate != null)
+            // {
+            //     Debug.Log($"distance: {Distance}");
+            // }
         }
     }
 }
