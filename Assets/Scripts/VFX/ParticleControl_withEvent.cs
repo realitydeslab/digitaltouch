@@ -23,7 +23,7 @@ public class ParticleControl_withEvent : BaseVFXControl_withEvent
 
     }
 
-    public override void OnPalmsRelationUpdated(float distance, Vector3 centerPosition)
+    public override void OnTipsRelationUpdated(float distance, Vector3 centerPosition)
     {
         if (distance <= 0.05)
         {

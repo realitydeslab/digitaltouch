@@ -25,7 +25,7 @@ public class FlameControl_withEvent : BaseVFXControl_withEvent
 
     }
 
-    public override void OnPalmsRelationUpdated(float distance, Vector3 centerPosition)
+    public override void OnTipsRelationUpdated(float distance, Vector3 centerPosition)
     {
         transform.position = centerPosition;
 

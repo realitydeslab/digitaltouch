@@ -4,13 +4,13 @@ public abstract class BaseVFXControl_withEvent: MonoBehaviour
 {
     protected virtual void OnEnable()
     {
-        HandsRelationManager.OnIndexesRelationUpdate += OnPalmsRelationUpdated;
+        HandsRelationManager.OnIndexesRelationUpdate += OnTipsRelationUpdated;
     }
 
     protected virtual void OnDisable()
     {
-        HandsRelationManager.OnIndexesRelationUpdate -= OnPalmsRelationUpdated;
+        HandsRelationManager.OnIndexesRelationUpdate -= OnTipsRelationUpdated;
     }
 
-    public abstract void OnPalmsRelationUpdated(float distance, Vector3 centerPosition);
+    public abstract void OnTipsRelationUpdated(float distance, Vector3 centerPosition);
 }

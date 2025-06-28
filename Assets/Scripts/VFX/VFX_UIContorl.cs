@@ -6,8 +6,11 @@ public class VFX_UIContorl : MonoBehaviour
 
     public BaseVFXControl_withEvent Particle;
 
+    public BaseVFXControl_withEvent Trail;
+
     private bool isFlameEnable = false;
     private bool isParticleEnable = false;
+    private bool isTrailEnable = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -21,6 +24,10 @@ public class VFX_UIContorl : MonoBehaviour
         {
             Particle.enabled = isParticleEnable;
         }
+        if (Trail != null)
+        {
+            Trail.enabled = isTrailEnable;
+        }
     }
 
     public void ToggleFlame()
@@ -33,5 +40,11 @@ public class VFX_UIContorl : MonoBehaviour
     {
         isParticleEnable = !isParticleEnable;
         Particle.enabled = isParticleEnable;
+    }
+
+    public void ToggleTrail()
+    {
+        isTrailEnable = !isTrailEnable;
+        Trail.enabled = isTrailEnable;
     }
 }

@@ -173,6 +173,14 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.textmeshpro": {
+      "version": "5.0.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.ugui": "2.0.0"
+      }
+    },
     "com.unity.timeline": {
       "version": "1.8.7",
       "depth": 0,
@@ -315,6 +323,22 @@
         "com.unity.xr.arfoundation": "6.0.3"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.veriorpies.parrelsync": {
+      "version": "https://github.com/VeriorPies/ParrelSync.git?path=/ParrelSync",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "610157ad762084380380148ba8ce14e266a6da97"
+    },
+    "com.yuchen.ingame-console": {
+      "version": "https://github.com/yuchenz27/unity-ingame-console.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.7"
+      },
+      "hash": "ee05a98bb867d6bdbe6cc67951540230f9ef9528"
     },
     "io.holokit.image-tracking-relocalization": {
       "version": "https://github.com/holoi/com.holoi.xr.image-tracking-relocalization.git",

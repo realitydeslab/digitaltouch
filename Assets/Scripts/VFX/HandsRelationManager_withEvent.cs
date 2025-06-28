@@ -3,7 +3,6 @@ using System;
 
 public class HandsRelationManager : MonoBehaviour
 {
-    public float Distance;
     [Header("Left Hand Joint Transforms")]
     public Transform leftHandPalm;
     public Transform leftHandWrist;
@@ -23,6 +22,14 @@ public class HandsRelationManager : MonoBehaviour
     public Transform rightLittleTip;
 
     public static event Action<float, Vector3> OnIndexesRelationUpdate;
+
+    [SerializeField]
+    private float _distance;
+    public float Distance
+    {
+        get { return _distance; }
+        private set { _distance = value; } // 私有 set
+    }
 
     private void Update()
     {

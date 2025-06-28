@@ -33,6 +33,8 @@
     "org.realitydeslab.netcode.transport.multipeer-connectivity": "1.2.0",
     "com.unity.modules.accessibility": "1.0.0",
     "jp.keijiro.klak.motion": "1.1.0",
-    "jp.keijiro.vfxgraphassets": "2.1.1"
+    "jp.keijiro.vfxgraphassets": "2.1.1",
+    "com.veriorpies.parrelsync": "https://github.com/VeriorPies/ParrelSync.git?path=/ParrelSync",
+    "com.yuchen.ingame-console": "https://github.com/yuchenz27/unity-ingame-console.git"
   }
 }
