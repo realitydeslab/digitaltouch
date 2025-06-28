@@ -12,12 +12,15 @@ public class FlameControl : BaseVFXControl
     {
         base.OnEnable();
         Flame.enabled = true;
+        Debug.Log("Flame is disabled");
     }
 
     protected override void OnDisable()
     {
         Flame.enabled = false;
         base.OnDisable();
+        Debug.Log("Flame is disabled");
+
     }
 
     public override void OnRelationDataUpdated(float distance, Vector3 centerPosition)
