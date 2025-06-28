@@ -7,6 +7,13 @@
         "org.realitydeslab"
       ],
       "overrideBuiltIns": true
+    },
+    {
+      "name": "Keijiro",
+      "url": "https://registry.npmjs.com",
+      "scopes": [
+        "jp.keijiro"
+      ]
     }
   ],
   "dependencies": {
@@ -24,6 +31,8 @@
     "com.unity.xr.visionos": "2.2.4",
     "io.holokit.image-tracking-relocalization": "https://github.com/holoi/com.holoi.xr.image-tracking-relocalization.git",
     "org.realitydeslab.netcode.transport.multipeer-connectivity": "1.2.0",
-    "com.unity.modules.accessibility": "1.0.0"
+    "com.unity.modules.accessibility": "1.0.0",
+    "jp.keijiro.klak.motion": "1.1.0",
+    "jp.keijiro.vfxgraphassets": "2.1.1"
   }
 }

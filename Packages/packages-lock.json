@@ -328,11 +328,47 @@
       },
       "hash": "b674b563eab9d3bad6d2f3dc053cd2e9bf73133b"
     },
+    "jp.keijiro.klak.motion": {
+      "version": "1.1.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.noiseshader": {
+      "version": "2.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
     "jp.keijiro.osc-jack": {
       "version": "file:jp.keijiro.osc-jack",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
+    },
+    "jp.keijiro.shadergraphassets": {
+      "version": "2.5.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.shadergraph": "12.1.0",
+        "jp.keijiro.noiseshader": "2.0.0"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.vfxgraphassets": {
+      "version": "2.1.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.visualeffectgraph": "14.0.0",
+        "jp.keijiro.shadergraphassets": "2.5.2"
+      },
+      "url": "https://registry.npmjs.com"
     },
     "org.realitydeslab.netcode.transport.multipeer-connectivity": {
       "version": "1.2.0",
