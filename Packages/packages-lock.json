@@ -40,9 +40,18 @@
     },
     "com.unity.ext.nunit": {
       "version": "2.0.5",
-      "depth": 4,
+      "depth": 2,
       "source": "builtin",
       "dependencies": {}
+    },
+    "com.unity.ide.visualstudio": {
+      "version": "2.0.23",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.test-framework": "1.1.9"
+      },
+      "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
       "version": "1.14.0",
@@ -146,7 +155,7 @@
     },
     "com.unity.test-framework": {
       "version": "1.5.1",
-      "depth": 3,
+      "depth": 1,
       "source": "builtin",
       "dependencies": {
         "com.unity.ext.nunit": "2.0.3",
@@ -163,6 +172,14 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.unity.textmeshpro": {
+      "version": "5.0.0",
+      "depth": 1,
+      "source": "builtin",
+      "dependencies": {
+        "com.unity.ugui": "2.0.0"
+      }
     },
     "com.unity.timeline": {
       "version": "1.8.7",
@@ -307,6 +324,22 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.veriorpies.parrelsync": {
+      "version": "https://github.com/VeriorPies/ParrelSync.git?path=/ParrelSync",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "610157ad762084380380148ba8ce14e266a6da97"
+    },
+    "com.yuchen.ingame-console": {
+      "version": "https://github.com/yuchenz27/unity-ingame-console.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.7"
+      },
+      "hash": "ee05a98bb867d6bdbe6cc67951540230f9ef9528"
+    },
     "io.holokit.image-tracking-relocalization": {
       "version": "https://github.com/holoi/com.holoi.xr.image-tracking-relocalization.git",
       "depth": 0,
@@ -319,11 +352,47 @@
       },
       "hash": "b674b563eab9d3bad6d2f3dc053cd2e9bf73133b"
     },
+    "jp.keijiro.klak.motion": {
+      "version": "1.1.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.1"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.noiseshader": {
+      "version": "2.0.0",
+      "depth": 2,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://registry.npmjs.com"
+    },
     "jp.keijiro.osc-jack": {
       "version": "file:jp.keijiro.osc-jack",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
+    },
+    "jp.keijiro.shadergraphassets": {
+      "version": "2.5.2",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.shadergraph": "12.1.0",
+        "jp.keijiro.noiseshader": "2.0.0"
+      },
+      "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.vfxgraphassets": {
+      "version": "2.1.1",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.visualeffectgraph": "14.0.0",
+        "jp.keijiro.shadergraphassets": "2.5.2"
+      },
+      "url": "https://registry.npmjs.com"
     },
     "org.realitydeslab.netcode.transport.multipeer-connectivity": {
       "version": "1.2.0",

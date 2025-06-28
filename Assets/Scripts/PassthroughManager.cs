@@ -30,6 +30,7 @@ public class PassthroughManager : MonoBehaviour
             StopCoroutine(activeFadeCoroutine);
         }
 
+        Debug.Log($"Toggle the passthrough to be {isTransparent}");
         activeFadeCoroutine = StartCoroutine(FadeColorCoroutine(targetColor, fadeDuration));
     }
 

@@ -999,6 +999,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 72844397}
+    - targetCorrespondingSourceObject: {fileID: 4524093123533786790, guid: aec5b6d19cd734c8a9214ea0267353d5,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 72844399}
   m_SourcePrefab: {fileID: 100100000, guid: aec5b6d19cd734c8a9214ea0267353d5, type: 3}
 --- !u!224 &72844395 stripped
 RectTransform:
@@ -1024,6 +1028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d27f1cafc01114c6fb2f2e87b56df284, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LogText: {fileID: 1115197266}
+  m_ShowStackTrace: 0
 --- !u!114 &72844398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1043,6 +1049,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &72844399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72844396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc2434353fd6a4f1d8aa55de173d777d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &114787420
 GameObject:
   m_ObjectHideFlags: 0
@@ -17258,8 +17276,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 72844397}
-        m_TargetAssemblyTypeName: Yuchen.InGameConsole.InGameConsole, Yuchen.InGameConsole
+      - m_Target: {fileID: 72844399}
+        m_TargetAssemblyTypeName: MainUIControl, Assembly-CSharp
         m_MethodName: DoQuit
         m_Mode: 1
         m_Arguments:

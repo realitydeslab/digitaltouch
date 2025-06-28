@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _connection: {fileID: 11400000, guid: f9362d07421034dfb849264cd50dca00, type: 2}
-  _oscAddress: /speedValue-send
+  _oscAddress: /tipsDistance
   _dataSource: {fileID: 5423332253655786680}
   _propertyName: value
   _keepSending: 0
