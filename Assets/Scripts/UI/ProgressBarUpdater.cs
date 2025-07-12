@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using HoloKit.ImageTrackingRelocalization;
 
 public class ProgressBarUpdater : MonoBehaviour
 {
