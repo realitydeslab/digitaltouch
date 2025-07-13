@@ -67,6 +67,8 @@ public class MainUIControl : MonoBehaviour
 
     public void TogglePassthrough()
     {
+        ToggleHDR();
+        TogglePostProcessing();
         isTransparent = !isTransparent;
 
         Color targetColor = isTransparent ? Color.clear : backgroundColor;

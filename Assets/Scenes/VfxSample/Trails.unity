@@ -338,7 +338,7 @@ VisualEffect:
       - m_Value: {fileID: 0}
         m_Name: Distance Gradient
         m_Overridden: 0
-      - m_Value: {fileID: 11700000, guid: baecc823180a844f99d063a0e1e7a8b7, type: 2}
+      - m_Value: {fileID: 11700000, guid: e92dfb541ce307a4e88e242f86969b03, type: 2}
         m_Name: SDF
         m_Overridden: 1
     m_Bool:
