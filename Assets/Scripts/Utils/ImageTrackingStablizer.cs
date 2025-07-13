@@ -83,27 +83,28 @@ public class ImageTrackingStablizer : MonoBehaviour
         m_IsRelocalizing = true;
         m_TrackedImagePoses = new();
         Debug.Log("Tracked Image Poses is inited");
-        //m_ARTrackedImageManager.trackablesChanged += OnTrackedImagesChanged;
+        m_ARTrackedImageManager.trackedImagesChanged += OnTrackedImagesChanged;
 
     }
 
     private void StopRelocalization()
     {
-        //m_ARTrackedImageManager.trackablesChanged -= OnTrackedImagesChanged;
+        m_ARTrackedImageManager.trackedImagesChanged -= OnTrackedImagesChanged;
         m_TrackedImagePoses = null;
         m_IsRelocalizing = false;
         OnProgressUpdated?.Invoke(0f); // 停止时重置进度
     }
 
-    public void OnTrackedImagesChanged(ARTrackablesChangedEventArgs<ARTrackedImage> eventArgs)
+    public void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs args)
     {
-        if (!IsRelocalizing)
+        // if (!IsRelocalizing)
+        // {
+        //     return;
+        // }
+        Debug.Log("Tracked Images Changed");
+        if (args.updated.Count == 1)
         {
-            return;
-        }
-        if (eventArgs.updated.Count == 1)
-        {
-            var image = eventArgs.updated[0];
+            var image = args.updated[0];
             if (image.trackingState == TrackingState.Tracking)
             {
                 TrackedImagePoseData poseData = new(image.transform.position, image.transform.rotation, Time.timeAsDouble);
