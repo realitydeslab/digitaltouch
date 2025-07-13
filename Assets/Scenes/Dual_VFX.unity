@@ -8424,7 +8424,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590980367}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 747a0a5579273422cb37f9bb98909cbb, type: 3}
   m_Name: 
@@ -9324,7 +9324,7 @@ PrefabInstance:
     - target: {fileID: 1100033262327660541, guid: 4a0c5bf5fee936247b507e3b184b0d06,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1513339508304654137, guid: 4a0c5bf5fee936247b507e3b184b0d06,
         type: 3}
@@ -9334,7 +9334,7 @@ PrefabInstance:
     - target: {fileID: 1513339508304654137, guid: 4a0c5bf5fee936247b507e3b184b0d06,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1791042194224710241, guid: 4a0c5bf5fee936247b507e3b184b0d06,
         type: 3}
@@ -11024,7 +11024,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 72844400}
         m_TargetAssemblyTypeName: Dual_VFX_UIControl, Assembly-CSharp
         m_MethodName: ToggleFlame
         m_Mode: 1
@@ -14867,7 +14867,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 72844400}
         m_TargetAssemblyTypeName: Dual_VFX_UIControl, Assembly-CSharp
         m_MethodName: ToggleParticle
         m_Mode: 1
@@ -15561,7 +15561,7 @@ GameObject:
   - component: {fileID: 1898464127}
   - component: {fileID: 1898464126}
   m_Layer: 0
-  m_Name: Trails
+  m_Name: Teaport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
