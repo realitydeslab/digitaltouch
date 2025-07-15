@@ -1,0 +1,43 @@
+{
+ "ProjectInfo": {
+  "Project": {
+   "Name": "DigitalTouch_WwiseProject",
+   "GUID": "{969A7F67-EF58-4DBC-B3DE-A50BB528C468}",
+   "Generator": "2024.1.6.8842"
+  },
+  "CacheRoot": "../../../../DigitalTouch_WwiseProject/.cache",
+  "Platforms": [
+   {
+    "Name": "iOS",
+    "GUID": "{E4D6D1F1-6ECE-40EF-B601-6915874122FE}",
+    "BasePlatform": "iOS",
+    "BasePlatformGUID": "{ECE03DB4-F948-462D-B2BB-A9173012B1F8}",
+    "Path": "../../../../DigitalTouch_WwiseProject/GeneratedSoundBanks/iOS"
+   },
+   {
+    "Name": "Mac",
+    "GUID": "{BE9B5427-9BD3-4787-9DEA-EA5061145C75}",
+    "BasePlatform": "Mac",
+    "BasePlatformGUID": "{9C6217D5-DD11-4795-87C1-6CE02853C540}",
+    "Path": "../../../../DigitalTouch_WwiseProject/GeneratedSoundBanks/Mac"
+   },
+   {
+    "Name": "Windows",
+    "GUID": "{C600D622-5594-4986-BBE5-EFB5B1DD4BB4}",
+    "BasePlatform": "Windows",
+    "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
+    "Path": "../../../../DigitalTouch_WwiseProject/GeneratedSoundBanks/Windows"
+   }
+  ],
+  "Languages": [
+   {
+    "Name": "English(US)",
+    "Id": "684519430",
+    "GUID": "{048E153C-2289-4686-82A5-47A42BDC5CD0}",
+    "Default": "true",
+    "UseAsStandIn": "true"
+   }
+  ],
+  "FileHash": "{82D72FEB-33E9-56E7-357B-8A64FF7266F8}"
+ }
+}

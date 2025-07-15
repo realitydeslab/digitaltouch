@@ -1,0 +1,51 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "iOS",
+  "BasePlatform": "iOS",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3220394505",
+    "Type": "User",
+    "GUID": "{E38F566E-0D74-42A2-812A-0ED0B9889644}",
+    "Language": "SFX",
+    "Hash": "{ACFDB220-66CA-1939-8247-805663F77416}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Sine_test",
+    "ShortName": "Sine_test",
+    "Path": "Sine_test.bnk",
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "155729973",
+       "Name": "Sine",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\Sine_test\\Sine",
+       "GUID": "{240BD844-C2A9-4488-9420-C505CCD140AA}",
+       "LibName": "Wwise Sine",
+       "LibId": "6553602"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "3050518368",
+      "Name": "Play_Sine_test",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Sine_test",
+      "GUID": "{EEC1D0D5-F58A-4BD9-8776-2E41BA9DFABA}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.1",
+      "DurationMax": "0.1",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "155729973"
+        }
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "FileHash": "{95657BA4-7FDF-BE16-7694-11C1C12B8420}"
+ }
+}
