@@ -1,3 +1,3 @@
-# visionOS Colocated Multiplayer Boilerplate
+# Digital Touch - visionOS 
 
-A boilerplate provides quick setup of colocated multiplayer mixed reality experiences using Apple Vision Pro.
+A Interaction Demo provides colocated multiplayer mixed reality experiences using Apple Vision Pro.
