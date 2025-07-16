@@ -1,2 +1,1 @@
-Assets/Wwise/* filter=lfs diff=lfs merge=lfs -text
-Assets/Wwise/API/Runtime/Plugins/* filter=lfs diff=lfs merge=lfs -text
+Assets/Wwise/API/Runtime/Plugins/**/* filter=lfs diff=lfs merge=lfs -text

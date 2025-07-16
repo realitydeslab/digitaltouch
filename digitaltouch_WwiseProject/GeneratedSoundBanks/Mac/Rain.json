@@ -1,0 +1,55 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "2043403999",
+    "Type": "User",
+    "GUID": "{2B435CB6-FC19-4B76-85F9-C24E08165D44}",
+    "Language": "SFX",
+    "Hash": "{BE8942F3-367F-9BED-56E8-B0C1CCF5D95A}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Rain",
+    "ShortName": "Rain",
+    "Path": "Rain.bnk",
+    "Media": [
+     {
+      "Id": "369297915",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "rain-03.wav",
+      "CachePath": "EE/{EE864A10-5A26-B479-EC7A-34ED56AE7D08}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2838936948",
+      "Name": "Play_Rain",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Rain",
+      "GUID": "{A7472F6C-87E6-4DCF-BFC5-72F796D854A3}",
+      "DurationType": "OneShot",
+      "DurationMin": "30.03004",
+      "DurationMax": "30.03004",
+      "MediaRefs": [
+       {
+        "Id": "369297915"
+       }
+      ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "2458116344",
+      "Name": "Rain_Volume",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Rain_Volume",
+      "GUID": "{A0EEBC5C-33D8-47CF-B65A-568E6DB49147}"
+     }
+    ]
+   }
+  ],
+  "FileHash": "{943F8CD7-9C9B-7AF2-EAE4-968E2D36A3CF}"
+ }
+}

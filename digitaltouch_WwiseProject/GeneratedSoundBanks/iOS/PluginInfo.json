@@ -1,0 +1,26 @@
+{
+ "PluginInfo": {
+  "Platform": "iOS",
+  "BasePlatform": "iOS",
+  "PluginLibs": [
+   {
+    "LibName": "Wwise Sine",
+    "LibId": "6553602",
+    "Type": "Source",
+    "DLL": "AkSineTone",
+    "StaticLib": "AkSineSource"
+   },
+   {
+    "LibName": "System",
+    "LibId": "11403271",
+    "Type": "AudioDevice"
+   },
+   {
+    "LibName": "No Output",
+    "LibId": "11862023",
+    "Type": "AudioDevice"
+   }
+  ],
+  "FileHash": "{DC1447E9-3297-1434-BA42-37EAA5F089E6}"
+ }
+}

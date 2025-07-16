@@ -1,0 +1,9 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2838936948	Play_Rain			\Default Work Unit\Play_Rain	
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	2458116344	Rain_Volume			\Default Work Unit\Rain_Volume	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	369297915	Rain	Y:\UnityProjects\digitaltouch\digitaltouch_WwiseProject\.cache\EE\{EE864A10-5A26-B479-EC7A-34ED56AE7D08}.wem		\Actor-Mixer Hierarchy\Default Work Unit\Rain		5765864
+

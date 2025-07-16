@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3191ED3D-829C-44C6-82A1-0456B966151D}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{3191ED3D-829C-44C6-82A1-0456B966151D}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_Sine" ID="{07B8EA60-85DC-4E06-BEDD-C4E808B77F5B}">
+					<ChildrenList>
+						<Action Name="" ID="{B292C712-9208-4D73-9EF1-3974BAD741F1}" ShortID="712734693">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Sine_short" ID="{2A052977-59B6-4869-9BF4-EDFD99E00968}" WorkUnitID="{B47ED04E-D84D-4C07-B42E-EB59C1E0E6F7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Set_RainVolume" ID="{A7472F6C-87E6-4DCF-BFC5-72F796D854A3}">
+					<ChildrenList>
+						<Action Name="" ID="{2BC0F923-8318-4EF0-A0EA-67B2BA38345B}" ShortID="449685725">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="12"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Rain" ID="{643195CF-D192-4CA7-9FA8-E05A5B495B4B}" WorkUnitID="{B47ED04E-D84D-4C07-B42E-EB59C1E0E6F7}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

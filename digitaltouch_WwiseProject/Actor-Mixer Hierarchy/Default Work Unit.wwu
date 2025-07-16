@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{B47ED04E-D84D-4C07-B42E-EB59C1E0E6F7}" SchemaVersion="123">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{B47ED04E-D84D-4C07-B42E-EB59C1E0E6F7}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="Sine_short" ID="{2A052977-59B6-4869-9BF4-EDFD99E00968}" ShortID="930424672">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C27B8C87-6A56-4B7C-9F40-663E6A7D1F71}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{3C38CE1E-CD2F-44A1-9F1A-25D47FC08213}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SourcePlugin Name="Sine" ID="{DBD7636B-A9D4-4A1D-A3D3-E0DD7492DE72}" ShortID="898566229" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+							<PropertyList>
+								<Property Name="SineDuration" Type="Real32" Value="0.1"/>
+							</PropertyList>
+							<Language>SFX</Language>
+						</SourcePlugin>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Sine" ID="{DBD7636B-A9D4-4A1D-A3D3-E0DD7492DE72}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Wind" ID="{93D2D708-F20D-42E0-BA12-510F0EC4F161}" ShortID="926070017">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C27B8C87-6A56-4B7C-9F40-663E6A7D1F71}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{3C38CE1E-CD2F-44A1-9F1A-25D47FC08213}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SourcePlugin Name="Soundseed Air Wind" ID="{36D6F793-8013-45D8-9278-4F296D45F7B3}" ShortID="468096050" PluginName="SoundSeed Air Wind" CompanyID="0" PluginID="119">
+							<Language>SFX</Language>
+							<PluginData/>
+							<PluginInnerObjectList>
+								<List Name="Deflectors">
+									<PluginInnerObject Name="" ID="{52D95273-658B-4C7C-8D05-84A03D853003}" PluginName="Deflector" CompanyID="0" PluginID="121"/>
+								</List>
+							</PluginInnerObjectList>
+						</SourcePlugin>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Soundseed Air Wind" ID="{36D6F793-8013-45D8-9278-4F296D45F7B3}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+				<Sound Name="Rain" ID="{643195CF-D192-4CA7-9FA8-E05A5B495B4B}" ShortID="602768471">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C27B8C87-6A56-4B7C-9F40-663E6A7D1F71}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{3C38CE1E-CD2F-44A1-9F1A-25D47FC08213}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="rain-03" ID="{78B61E42-291D-469D-B4C9-248ACB0EABB5}">
+							<Language>SFX</Language>
+							<AudioFile>rain-03.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="369297915"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{F2DF1CCA-14DA-4B33-A8EB-FACB4DAB61BD}" ShortID="708083934">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="Rain_Volume" ID="{A0EEBC5C-33D8-47CF-B65A-568E6DB49147}" WorkUnitID="{3991C238-C325-4A7A-BB70-53EA5BAF21AB}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{D7375203-598B-4935-BACC-49B2A01B15E3}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>1</XPos>
+																<YPos>-0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+					<ActiveSourceList>
+						<ActiveSource Name="rain-03" ID="{78B61E42-291D-469D-B4C9-248ACB0EABB5}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

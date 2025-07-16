@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{57CBC428-2DEA-498C-AE81-340AE0A32474}" SchemaVersion="123">
+	<SoundBanks>
+		<WorkUnit Name="Default Work Unit" ID="{57CBC428-2DEA-498C-AE81-340AE0A32474}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Sine_test" ID="{E227CE6A-26DD-4820-B806-7AE151CE0482}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Set_RainVolume" ID="{A7472F6C-87E6-4DCF-BFC5-72F796D854A3}" WorkUnitID="{3191ED3D-829C-44C6-82A1-0456B966151D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Play_Sine" ID="{07B8EA60-85DC-4E06-BEDD-C4E808B77F5B}" WorkUnitID="{3191ED3D-829C-44C6-82A1-0456B966151D}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

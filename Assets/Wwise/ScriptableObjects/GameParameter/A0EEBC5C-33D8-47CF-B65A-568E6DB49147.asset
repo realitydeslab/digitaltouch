@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e43dec296990748bfb9da8700f14f623, type: 3}
+  m_Name: A0EEBC5C-33D8-47CF-B65A-568E6DB49147
+  m_EditorClassIdentifier: 
+  objectName: Rain_Volume
+  id: 2458116344
+  guid: A0EEBC5C-33D8-47CF-B65A-568E6DB49147

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3991C238-C325-4A7A-BB70-53EA5BAF21AB}" SchemaVersion="123">
+	<GameParameters>
+		<WorkUnit Name="Default Work Unit" ID="{3991C238-C325-4A7A-BB70-53EA5BAF21AB}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="Rain_Volume" ID="{A0EEBC5C-33D8-47CF-B65A-568E6DB49147}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0.5"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

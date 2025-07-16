@@ -1,0 +1,6 @@
+Event	ID	Name			Wwise Object Path	Notes
+	4010112737	Play_Sine			\Default Work Unit\Play_Sine	
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	898566229	Sine	Wwise Sine		\Actor-Mixer Hierarchy\Default Work Unit\Sine_short\Sine	
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3C38CE1E-CD2F-44A1-9F1A-25D47FC08213}" SchemaVersion="123">
+	<Busses>
+		<WorkUnit Name="Default Work Unit" ID="{3C38CE1E-CD2F-44A1-9F1A-25D47FC08213}" PersistMode="Standalone">
+			<ChildrenList>
+				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{D4D2FC6D-A6EE-4567-B390-267DD44C4914}" WorkUnitID="{ED6DC589-83DB-404C-8AA7-BCCEBDDAF8FD}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="ToUnity" ID="{023347FA-74CE-4FEC-B57D-A5C6E17A3091}">
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{8BFFAF9B-3F43-4D89-B62D-47435E79C7B5}" ShortID="599933556">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Meter (Custom)" ID="{C2E598ED-39DF-47E7-8059-3E985513CAD1}" ShortID="30697013" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">																<PluginData>
+	<GameParameter Name="Rain_Volume" ID="{A0EEBC5C-33D8-47CF-B65A-568E6DB49147}"/>
+</PluginData>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
+					</ChildrenList>
+				</Bus>
+			</ChildrenList>
+		</WorkUnit>
+	</Busses>
+</WwiseDocument>
