@@ -557,7 +557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4640891045190194141}
   - component: {fileID: 6943469151596716697}
-  - component: {fileID: 9151488929888323193}
+  - component: {fileID: 242199273633492750}
   m_Layer: 0
   m_Name: Player_VFX
   m_TagString: Untagged
@@ -607,7 +607,7 @@ MonoBehaviour:
   AutoObjectParentSync: 1
   SyncOwnerTransformWhenParented: 1
   AllowOwnerToParent: 0
---- !u!114 &9151488929888323193
+--- !u!114 &242199273633492750
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -620,12 +620,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  Distances:
-  - Tip_1: {fileID: 0}
-    Tip_2: {fileID: 0}
-  leftIndexTip: {fileID: 2758589413306877335}
-  rightIndexTip: {fileID: 3319104040782744945}
-  vfxUIController: {fileID: 0}
+  Relations: []
+  networkAffordances: []
+  leftIndexTip: {fileID: 6750267542131347468}
+  rightIndexTip: {fileID: 635129553873628953}
+  affordanceController: {fileID: 0}
   playerManagers: []
   networkDistance:
     m_InternalValue: 0

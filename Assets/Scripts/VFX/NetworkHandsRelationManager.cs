@@ -21,15 +21,42 @@ public class RelationOfJoints
     }
 }
 
+[System.Serializable]
+public class NetworkAffordance
+{
+    public BaseAffordanceControl affordance;
+    public NetworkVariable<bool> networkIsEnable;
+
+    public NetworkAffordance(BaseAffordanceControl _affordance)
+    {
+        affordance = _affordance;
+        networkIsEnable = new NetworkVariable<bool>(false);
+        networkIsEnable.OnValueChanged += onAffordanceEnableChange;
+    }
+
+    ~NetworkAffordance()
+    {
+        networkIsEnable.OnValueChanged -= onAffordanceEnableChange;
+    }
+    public void onAffordanceEnableChange(bool previousState, bool currentState)
+    {
+        affordance.SetEnable(currentState);
+        Debug.Log("Affordance State is " + currentState);
+    }
+}
+
 public class NetworkHandsRelationManager : NetworkBehaviour
 {
     public List<RelationOfJoints> Relations = new List<RelationOfJoints>();
+    // public List<BaseAffordanceControl> affordanceControls = new List<BaseAffordanceControl>();
+    // public List<NetworkVariable<bool>> networkIsAffordanceEnableStates = new List<NetworkVariable<bool>>();
+    public List<NetworkAffordance> networkAffordances = new List<NetworkAffordance>();
 
     [Header("Hand Joint Transforms (per player)")]
     public Transform leftIndexTip;
     public Transform rightIndexTip;
 
-    public Affordance_UIControl vfxUIController;
+    public Affordance_UIControl affordanceController;
 
     public NetworkHandsRelationManager[] playerManagers;
 
@@ -37,21 +64,29 @@ public class NetworkHandsRelationManager : NetworkBehaviour
     public NetworkVariable<Vector3> networkCenterPosition = new NetworkVariable<Vector3>(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     public static NetworkHandsRelationManager Instance { get; private set; }
-    public NetworkVariable<bool> networkIsFlameEnable = new NetworkVariable<bool>(false);
-    public NetworkVariable<bool> networkIsParticleEnable = new NetworkVariable<bool>(false);
+    // public NetworkVariable<bool> networkIsFlameEnable = new NetworkVariable<bool>(false);
+    // public NetworkVariable<bool> networkIsParticleEnable = new NetworkVariable<bool>(false);
 
+
+    
 
     public override void OnNetworkSpawn()
     {
-        networkIsFlameEnable.OnValueChanged += onNetworkFlameEnableChange;
-        networkIsParticleEnable.OnValueChanged += onNetworkParticleEnableChange;
-        GameObject controllerObject = GameObject.Find("Dual VFX UI Controller");
+        // networkIsFlameEnable.OnValueChanged += onNetworkFlameEnableChange;
+        // networkIsParticleEnable.OnValueChanged += onNetworkParticleEnableChange;
+        GameObject controllerObject = GameObject.Find("UI Canvas");
         if (controllerObject)
         {
-            vfxUIController = controllerObject.GetComponent<Affordance_UIControl>();
-            Affordance_UIControl.OnFlameEnableChange += onFlameEnableChangServerRpc;
-            Affordance_UIControl.OnParticleEnableChange += onParticleEnableChangeServerRpc;
-            Debug.Log("Find Dual VFX UI Controller");
+            affordanceController = controllerObject.GetComponent<Affordance_UIControl>();
+            foreach (var affordance in affordanceController.affordanceControls)
+            {
+                affordance.OnEnableChange += onAffordanceEnableChangServerRpc;
+                networkAffordances.Add(new NetworkAffordance(affordance));
+                Debug.Log("add a network affordance");
+            }
+            // Affordance_UIControl.OnFlameEnableChange += onFlameEnableChangServerRpc;
+            // Affordance_UIControl.OnParticleEnableChange += onParticleEnableChangeServerRpc;
+            Debug.Log("Find UI Canvas Controller");
         }
 
         if (IsOwner)
@@ -65,10 +100,14 @@ public class NetworkHandsRelationManager : NetworkBehaviour
 
     public override void OnNetworkDespawn()
     {
-        networkIsFlameEnable.OnValueChanged -= onNetworkFlameEnableChange;
-        networkIsParticleEnable.OnValueChanged -= onNetworkParticleEnableChange;
-        Affordance_UIControl.OnFlameEnableChange -= onFlameEnableChangServerRpc;
-        Affordance_UIControl.OnParticleEnableChange -= onParticleEnableChangeServerRpc;
+        // networkIsFlameEnable.OnValueChanged -= onNetworkFlameEnableChange;
+        // networkIsParticleEnable.OnValueChanged -= onNetworkParticleEnableChange;
+        // Affordance_UIControl.OnFlameEnableChange -= onFlameEnableChangServerRpc;
+        // Affordance_UIControl.OnParticleEnableChange -= onParticleEnableChangeServerRpc;
+        foreach (var affordance in affordanceController.affordanceControls)
+        {
+            affordance.OnEnableChange -= onAffordanceEnableChangServerRpc;
+        }
 
         if (IsOwner && Instance == this)
         {
@@ -117,26 +156,27 @@ public class NetworkHandsRelationManager : NetworkBehaviour
     }
 
     [ServerRpc(RequireOwnership = false)]
-    private void onFlameEnableChangServerRpc(bool state)
+    private void onAffordanceEnableChangServerRpc(int index, bool state)
     {
-        networkIsFlameEnable.Value = state;
+        networkAffordances[index].networkIsEnable.Value = state;
+        //networkIsFlameEnable.Value = state;
     }
 
-    [ServerRpc(RequireOwnership = false)]
-    private void onParticleEnableChangeServerRpc(bool state)
-    {
-        networkIsParticleEnable.Value = state;
-    }
+    // [ServerRpc(RequireOwnership = false)]
+    // private void onParticleEnableChangeServerRpc(bool state)
+    // {
+    //     networkIsParticleEnable.Value = state;
+    // }
 
-    private void onNetworkFlameEnableChange(bool previousState, bool currentState)
-    {
-        if (IsOwner)
-            vfxUIController.SetFlame(currentState);
-    }
+    // private void onNetworkAffordanceEnableChange(bool previousState, bool currentState)
+    // {
+    //     if (IsOwner)
+            
+    // }
 
-    private void onNetworkParticleEnableChange(bool previousState, bool currentState)
-    {
-        if (IsOwner)
-            vfxUIController.SetParticle(currentState);
-    }
+    // private void onNetworkParticleEnableChange(bool previousState, bool currentState)
+    // {
+    //     if (IsOwner)
+    //         affordanceController.SetParticle(currentState);
+    // }
 }

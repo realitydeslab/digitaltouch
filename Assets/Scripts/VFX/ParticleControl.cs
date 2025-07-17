@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class ParticleControl : BaseVFXControl
+public class ParticleControl : BaseAffordanceControl
 {
     public List<ParticleSystem> m_ParticleSystems;
 
