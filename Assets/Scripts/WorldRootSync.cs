@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class SynchronizedObject : MonoBehaviour
 {
-    private Transform worldRootTransform;
+    public Vector3 relativePos;
+    public Quaternion relativeRot;
     private void Start()
     {
         if (WorldRoot.Instance != null)
         {
+            Vector3 rootPositionOrigin = WorldRoot.Instance.WorldRootTransform.position;
+            Quaternion rootRotationOrigin = WorldRoot.Instance.WorldRootTransform.rotation;
+            relativePos = this.transform.position - rootPositionOrigin;
+            relativeRot = Quaternion.Inverse(rootRotationOrigin) * this.transform.rotation;
+
             WorldRoot.Instance.OnTransformChanged += AlignWithRoot;
             WorldRoot.Instance.ForceUpdateAlignment();
+            Debug.Log("Has instance");
         }
     }
 
@@ -16,18 +23,12 @@ public class SynchronizedObject : MonoBehaviour
     {
         if (WorldRoot.Instance != null)
         {
+            Debug.Log("Align with world root");
             
-            Vector3 relativePos = worldRootTransform.InverseTransformPoint(transform.position);
-            Quaternion relativeRot = Quaternion.Inverse(worldRootTransform.rotation) * transform.rotation;
-            this.transform.SetPositionAndRotation(relativePos, relativeRot);
+            //this.transform.SetPositionAndRotation(relativePos, relativeRot);
+            transform.position = WorldRoot.Instance.WorldRootTransform.position + relativePos;
+            transform.rotation = WorldRoot.Instance.WorldRootTransform.rotation * relativeRot;
         }
-    }
-
-    public void InitRelationWithRoot()
-    {
-        if (WorldRoot.Instance != null)
-            worldRootTransform = WorldRoot.Instance.WorldRootTransform;
-        
     }
 
     private void OnDestroy()

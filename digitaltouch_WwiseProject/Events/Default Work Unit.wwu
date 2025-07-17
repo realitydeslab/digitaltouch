@@ -14,12 +14,9 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-				<Event Name="Set_RainVolume" ID="{A7472F6C-87E6-4DCF-BFC5-72F796D854A3}">
+				<Event Name="Play_Rain" ID="{A7472F6C-87E6-4DCF-BFC5-72F796D854A3}">
 					<ChildrenList>
 						<Action Name="" ID="{2BC0F923-8318-4EF0-A0EA-67B2BA38345B}" ShortID="449685725">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="12"/>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="Rain" ID="{643195CF-D192-4CA7-9FA8-E05A5B495B4B}" WorkUnitID="{B47ED04E-D84D-4C07-B42E-EB59C1E0E6F7}"/>

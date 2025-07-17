@@ -49,6 +49,13 @@
 					</ActiveSourceList>
 				</Sound>
 				<Sound Name="Rain" ID="{643195CF-D192-4CA7-9FA8-E05A5B495B4B}" ShortID="602768471">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C27B8C87-6A56-4B7C-9F40-663E6A7D1F71}"/>
