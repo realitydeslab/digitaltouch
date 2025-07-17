@@ -1,11 +1,9 @@
 using System.Collections;
-//using UnityEditorInternal;
 using UnityEngine;
-// using UnityEngine.Rendering.Universal;
 
 using UnityEngine.Rendering.Universal;
 
-public class MainUIControl : MonoBehaviour
+public class PassthroughControl : MonoBehaviour
 {
     public Camera m_Camera;
     public GameObject bloom;
@@ -18,7 +16,7 @@ public class MainUIControl : MonoBehaviour
     [SerializeField] private bool isTransparent = true; 
     private Coroutine activeFadeCoroutine;
 
-    public static MainUIControl Instance { get; private set; }
+    public static PassthroughControl Instance { get; private set; }
 
     private void Awake()
     {

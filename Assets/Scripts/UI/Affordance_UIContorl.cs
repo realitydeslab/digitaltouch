@@ -2,7 +2,7 @@ using UnityEngine;
 using Unity.Netcode;
 using System;
 
-public class Dual_VFX_UIControl : MonoBehaviour
+public class Affordance_UIControl : MonoBehaviour
 {
     public BaseVFXControl Flame;
 

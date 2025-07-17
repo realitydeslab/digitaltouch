@@ -1,14 +1,35 @@
 using UnityEngine;
 using Unity.Netcode;
 using System;
+using System.Collections.Generic;
+
+[System.Serializable]
+public class RelationOfJoints
+{
+    public string RelationName = "LeftIndexTip-RightIndexTip";
+    public Transform Tip_1;
+    public Transform Tip_2;
+
+    public float GetDistance()
+    {
+        return Vector3.Distance(Tip_1.position, Tip_2.position);
+    }
+
+    public Vector3 GetCenterPoint()
+    {
+        return Vector3.Lerp(Tip_1.position, Tip_2.position, 0.5f);
+    }
+}
 
 public class NetworkHandsRelationManager : NetworkBehaviour
 {
+    public List<RelationOfJoints> Relations = new List<RelationOfJoints>();
+
     [Header("Hand Joint Transforms (per player)")]
     public Transform leftIndexTip;
     public Transform rightIndexTip;
 
-    public Dual_VFX_UIControl vfxUIController;
+    public Affordance_UIControl vfxUIController;
 
     public NetworkHandsRelationManager[] playerManagers;
 
@@ -27,9 +48,9 @@ public class NetworkHandsRelationManager : NetworkBehaviour
         GameObject controllerObject = GameObject.Find("Dual VFX UI Controller");
         if (controllerObject)
         {
-            vfxUIController = controllerObject.GetComponent<Dual_VFX_UIControl>();
-            Dual_VFX_UIControl.OnFlameEnableChange += onFlameEnableChangServerRpc;
-            Dual_VFX_UIControl.OnParticleEnableChange += onParticleEnableChangeServerRpc;
+            vfxUIController = controllerObject.GetComponent<Affordance_UIControl>();
+            Affordance_UIControl.OnFlameEnableChange += onFlameEnableChangServerRpc;
+            Affordance_UIControl.OnParticleEnableChange += onParticleEnableChangeServerRpc;
             Debug.Log("Find Dual VFX UI Controller");
         }
 
@@ -46,8 +67,8 @@ public class NetworkHandsRelationManager : NetworkBehaviour
     {
         networkIsFlameEnable.OnValueChanged -= onNetworkFlameEnableChange;
         networkIsParticleEnable.OnValueChanged -= onNetworkParticleEnableChange;
-        Dual_VFX_UIControl.OnFlameEnableChange -= onFlameEnableChangServerRpc;
-        Dual_VFX_UIControl.OnParticleEnableChange -= onParticleEnableChangeServerRpc;
+        Affordance_UIControl.OnFlameEnableChange -= onFlameEnableChangServerRpc;
+        Affordance_UIControl.OnParticleEnableChange -= onParticleEnableChangeServerRpc;
 
         if (IsOwner && Instance == this)
         {
@@ -95,13 +116,13 @@ public class NetworkHandsRelationManager : NetworkBehaviour
         }
     }
 
-    [ServerRpc(RequireOwnership =false)]
+    [ServerRpc(RequireOwnership = false)]
     private void onFlameEnableChangServerRpc(bool state)
     {
         networkIsFlameEnable.Value = state;
     }
 
-    [ServerRpc(RequireOwnership =false)]
+    [ServerRpc(RequireOwnership = false)]
     private void onParticleEnableChangeServerRpc(bool state)
     {
         networkIsParticleEnable.Value = state;
@@ -109,13 +130,13 @@ public class NetworkHandsRelationManager : NetworkBehaviour
 
     private void onNetworkFlameEnableChange(bool previousState, bool currentState)
     {
-        if(IsOwner)
+        if (IsOwner)
             vfxUIController.SetFlame(currentState);
     }
 
     private void onNetworkParticleEnableChange(bool previousState, bool currentState)
     {
-        if(IsOwner)
+        if (IsOwner)
             vfxUIController.SetParticle(currentState);
     }
 }

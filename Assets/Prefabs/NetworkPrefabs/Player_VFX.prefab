@@ -620,6 +620,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
+  Distances:
+  - Tip_1: {fileID: 0}
+    Tip_2: {fileID: 0}
   leftIndexTip: {fileID: 2758589413306877335}
   rightIndexTip: {fileID: 3319104040782744945}
   vfxUIController: {fileID: 0}
