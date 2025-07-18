@@ -5,6 +5,7 @@ using UnityEngine.VFX;
 public class RainControl : BaseAffordanceControl
 {
     public List<ParticleSystem> m_ParticleSystems;
+    public List<VisualEffect> m_VFX;
 
     [Tooltip("Sensitivity")]
     public float scaleSensitivity = 10f;
@@ -19,6 +20,10 @@ public class RainControl : BaseAffordanceControl
         {
             particle.Play();
         }
+        foreach (var vfx in m_VFX)
+        {
+            vfx.Play();
+        }
         playSound.TriggerWwiseSound();
     }
 
@@ -28,6 +33,10 @@ public class RainControl : BaseAffordanceControl
         foreach (var particle in m_ParticleSystems)
         {
             particle.Stop();
+        }
+        foreach (var vfx in m_VFX)
+        {
+            vfx.Stop();
         }
         base.OnDisable();
     }
