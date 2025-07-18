@@ -15,15 +15,18 @@ public class RainControl : BaseAffordanceControl
 
     protected override void OnEnable()
     {
-        base.OnEnable();
         foreach (var particle in m_ParticleSystems)
         {
+            particle.gameObject.SetActive(true);
             particle.Play();
         }
         foreach (var vfx in m_VFX)
         {
+            vfx.enabled = true;
             vfx.Play();
         }
+        base.OnEnable();
+
         playSound.TriggerWwiseSound();
     }
 
@@ -33,10 +36,12 @@ public class RainControl : BaseAffordanceControl
         foreach (var particle in m_ParticleSystems)
         {
             particle.Stop();
+            particle.gameObject.SetActive(false);
         }
         foreach (var vfx in m_VFX)
         {
             vfx.Stop();
+            vfx.enabled = false;
         }
         base.OnDisable();
     }
