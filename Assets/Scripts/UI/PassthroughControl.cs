@@ -38,10 +38,10 @@ public class PassthroughControl : MonoBehaviour
     private void Start()
     {
         if (bloom != null)
-            bloom.SetActive(true);
+            bloom.SetActive(false);
         m_Camera.clearFlags = CameraClearFlags.Color;
         m_Camera.backgroundColor = Color.clear;
-        isTransparent = false;
+        isTransparent = true;
     }
     
 
