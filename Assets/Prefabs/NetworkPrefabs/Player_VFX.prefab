@@ -128,6 +128,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 31
 --- !u!1 &162373161236506811
@@ -258,6 +259,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 41
 --- !u!1 &182937661480452627
@@ -389,6 +391,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 36
 --- !u!54 &7549600557219478455
@@ -545,6 +548,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 48
 --- !u!1 &862724930464955423
@@ -578,6 +582,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7202462729246863433}
   - {fileID: 5350447971246055362}
   - {fileID: 2462224970083461092}
   m_Father: {fileID: 0}
@@ -630,10 +635,6 @@ MonoBehaviour:
     m_InternalValue: 0
   networkCenterPosition:
     m_InternalValue: {x: 0, y: 0, z: 0}
-  networkIsFlameEnable:
-    m_InternalValue: 0
-  networkIsParticleEnable:
-    m_InternalValue: 0
 --- !u!1 &1001669195177280027
 GameObject:
   m_ObjectHideFlags: 0
@@ -761,6 +762,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 35
 --- !u!1 &1239894119549020898
@@ -890,6 +892,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 16
 --- !u!1 &1265615985951303536
@@ -1019,6 +1022,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 24
 --- !u!1 &1581953891501673821
@@ -1148,6 +1152,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 0
 --- !u!1 &1675581860931936102
@@ -1277,6 +1282,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 30
 --- !u!1 &1771490046321065886
@@ -1406,6 +1412,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 32
 --- !u!1 &1788050969239713365
@@ -1535,6 +1542,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 2
 --- !u!1 &2236205338099080013
@@ -1664,6 +1672,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 13
 --- !u!1 &2675763884461234604
@@ -1793,6 +1802,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 45
 --- !u!1 &2979784432607220588
@@ -1924,6 +1934,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 10
 --- !u!54 &6825208052619285345
@@ -2080,6 +2091,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 29
 --- !u!1 &3090759798937764072
@@ -2209,6 +2221,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 17
 --- !u!1 &3172107411521241037
@@ -2339,6 +2352,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 20
 --- !u!1 &3353789443532191501
@@ -2566,6 +2580,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 26
 --- !u!1 &3652044884981233784
@@ -2696,6 +2711,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 51
 --- !u!1 &3979688573014298582
@@ -2825,6 +2841,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 9
 --- !u!1 &3996120613328589413
@@ -2954,6 +2971,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 44
 --- !u!1 &4171871891177681001
@@ -3083,6 +3101,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 1
 --- !u!1 &4190647347920532297
@@ -3213,6 +3232,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 25
 --- !u!1 &4326656087795593200
@@ -3342,6 +3362,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 3
 --- !u!1 &4436619032069061935
@@ -3471,6 +3492,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 8
 --- !u!1 &4520942520757392214
@@ -3600,6 +3622,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 47
 --- !u!1 &4567774086282011954
@@ -3729,6 +3752,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 50
 --- !u!1 &4776414885442880007
@@ -3859,6 +3883,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 46
 --- !u!1 &5507247167975609576
@@ -3988,6 +4013,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 39
 --- !u!1 &5511163053529003164
@@ -4117,6 +4143,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 38
 --- !u!1 &5557395097468754818
@@ -4246,6 +4273,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 6
 --- !u!1 &5701746076396233372
@@ -4375,6 +4403,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 28
 --- !u!1 &5991137008756864244
@@ -4504,6 +4533,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 40
 --- !u!1 &6236700276819143103
@@ -4633,6 +4663,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 42
 --- !u!1 &6320601084881897107
@@ -4762,6 +4793,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 34
 --- !u!1 &7123956356950893094
@@ -4891,6 +4923,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 18
 --- !u!1 &7234930808145386173
@@ -5020,6 +5053,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 23
 --- !u!1 &7433117180402101629
@@ -5149,6 +5183,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 12
 --- !u!1 &7497208986931686985
@@ -5278,6 +5313,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 11
 --- !u!1 &7730010290801883167
@@ -5505,6 +5541,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 27
 --- !u!1 &7884874900913735045
@@ -5634,6 +5671,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 43
 --- !u!1 &7985423244910494971
@@ -5764,6 +5802,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 5
 --- !u!1 &8019321949416487963
@@ -5893,6 +5932,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 22
 --- !u!1 &8030429449601255852
@@ -6022,6 +6062,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 21
 --- !u!1 &8031599961714768635
@@ -6151,6 +6192,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 14
 --- !u!1 &8228551541365689646
@@ -6280,6 +6322,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 19
 --- !u!1 &8233490662186317104
@@ -6409,6 +6452,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 49
 --- !u!1 &8389936708309544678
@@ -6538,8 +6582,117 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 37
+--- !u!1 &8479174126796274987
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7202462729246863433}
+  - component: {fileID: 3537960914043558169}
+  - component: {fileID: 1706929889301937335}
+  - component: {fileID: 9082828725274999887}
+  m_Layer: 0
+  m_Name: XR Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7202462729246863433
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479174126796274987}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4640891045190194141}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3537960914043558169
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479174126796274987}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1706929889301937335
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479174126796274987}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9082828725274999887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8479174126796274987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a49a7f8fcba1943379b73c021fb8c69b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  m_HandJointPosition:
+    m_InternalValue: {x: 0, y: 0, z: 0}
+  m_HandJointRotation:
+    m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
+  m_HandJoint: {fileID: 0}
+  IsCamera: 1
+  m_WorldRoot: {fileID: 0}
+  HandJointIndex: 100
 --- !u!1 &8535351178627688458
 GameObject:
   m_ObjectHideFlags: 0
@@ -6667,6 +6820,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 33
 --- !u!1 &8776688607681791939
@@ -6796,6 +6950,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 4
 --- !u!1 &8940977053038112672
@@ -6925,6 +7080,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 7
 --- !u!1 &9037951934094301671
@@ -7055,6 +7211,7 @@ MonoBehaviour:
   m_HandJointRotation:
     m_InternalValue: {x: 0, y: 0, z: 0, w: 1}
   m_HandJoint: {fileID: 0}
+  IsCamera: 0
   m_WorldRoot: {fileID: 0}
   HandJointIndex: 15
 --- !u!1001 &1841735560302174738

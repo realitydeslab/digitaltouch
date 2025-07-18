@@ -10,17 +10,19 @@ using System.Collections.Generic;
 /// </summary>
 public class LocalHandDataSourceManager : MonoBehaviour
 {
-    [Header("本地追踪目标")]
+    [Header("Local Tracking Targets")]
     [Tooltip("场景中本地手部追踪管理器的根对象名称，例如OVRCameraRig或XR Origin")]
     [SerializeField] private Transform _localLeftHand;
     [SerializeField] private Transform _localRightHand;
+
+    [SerializeField] private Transform _localXRCamera;
     // [SerializeField] private string _localHandManagerName = "Hand Tracking Manager";
 
     // [Tooltip("包含'LeftHand'和'RightHand'子对象的追踪空间，通常是OVRCameraRig下的TrackingSpace")]
     // [SerializeField] private string _trackingSpaceName = "TrackingSpace";
 
 
-    [Header("数据源预制件")]
+    [Header("Data Source Prefab")]
     [Tooltip("一个仅挂载了 HandJointSynchronizer 脚本的空预制件")]
     [SerializeField] private GameObject _synchronizerPrefab;
     
@@ -60,6 +62,13 @@ public class LocalHandDataSourceManager : MonoBehaviour
         {
             Debug.LogError($"[LocalHandDataSourceManager] can not find 'Left Hand' or 'Right Hand'", this);
             return;
+        }
+
+        GameObject cameraSyncObj = Instantiate(_synchronizerPrefab, this.transform);
+        cameraSyncObj.name = "XR Camera Synchronizer";
+        if (cameraSyncObj.TryGetComponent<SimpleHandJointSynchronizer>(out SimpleHandJointSynchronizer cameraSynchronizer))
+        {
+            cameraSynchronizer.m_HandJoint = _localXRCamera;
         }
 
         // 3. 将所有本地关节收集到一个列表中

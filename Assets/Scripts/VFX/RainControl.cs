@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.VFX;
 
-public class ParticleControl : BaseAffordanceControl
+public class RainControl : BaseAffordanceControl
 {
     public List<ParticleSystem> m_ParticleSystems;
 
@@ -10,6 +10,7 @@ public class ParticleControl : BaseAffordanceControl
     public float scaleSensitivity = 10f;
 
     public RTPCController rTPC;
+    public PlaySound playSound;
 
     protected override void OnEnable()
     {
@@ -18,10 +19,12 @@ public class ParticleControl : BaseAffordanceControl
         {
             particle.Play();
         }
+        playSound.TriggerWwiseSound();
     }
 
     protected override void OnDisable()
     {
+        playSound.StopWwiseSound();
         foreach (var particle in m_ParticleSystems)
         {
             particle.Stop();
@@ -29,17 +32,9 @@ public class ParticleControl : BaseAffordanceControl
         base.OnDisable();
     }
 
-    public override void OnRelationDataUpdated(float distance, Vector3 centerPosition)
+
+    public override void OnTipRelationDataUpdated(float distance, Vector3 centerPosition)
     {
-        // if (distance <= 0.05)
-        // {
-        //     m_ParticleSystem.Pause(true);
-        // }
-        // else
-        // {
-        //     if (m_ParticleSystem.isPaused)
-        //         m_ParticleSystem.Pause(false);
-        // }
         float speed = distance * scaleSensitivity;
         SetParticleStartSpeed(speed);
 
@@ -47,6 +42,11 @@ public class ParticleControl : BaseAffordanceControl
         {
             rTPC.SetRTPCValue(distance);
         }
+    }
+
+    public override void OnCameraRelationDataUpdated(float distance, Vector3 centerPosition)
+    {
+        return;
     }
     
     public void SetParticleStartSpeed(float speed)

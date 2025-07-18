@@ -32,15 +32,16 @@ public class PassthroughControl : MonoBehaviour
             return;
         }
 
-        if (bloom != null)
-            bloom.SetActive(false);
+        
     }
 
     private void Start()
     {
+        if (bloom != null)
+            bloom.SetActive(true);
         m_Camera.clearFlags = CameraClearFlags.Color;
         m_Camera.backgroundColor = Color.clear;
-        isTransparent = true;
+        isTransparent = false;
     }
     
 

@@ -13,6 +13,7 @@
 				<SoundBank Name="Rain" ID="{2B435CB6-FC19-4B76-85F9-C24E08165D44}">
 					<ObjectInclusionList>
 						<ObjectRef Name="Play_Rain" ID="{A7472F6C-87E6-4DCF-BFC5-72F796D854A3}" WorkUnitID="{3191ED3D-829C-44C6-82A1-0456B966151D}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Stop_Rain" ID="{DA82368D-CD1A-4FA7-B45E-0AB65EC73598}" WorkUnitID="{3191ED3D-829C-44C6-82A1-0456B966151D}" Origin="Manual" Filter="7"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>

@@ -1,5 +1,6 @@
 Event	ID	Name			Wwise Object Path	Notes
 	2838936948	Play_Rain			\Default Work Unit\Play_Rain	
+	3206237490	Stop_Rain			\Default Work Unit\Stop_Rain	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	2458116344	Rain_Volume			\Default Work Unit\Rain_Volume	

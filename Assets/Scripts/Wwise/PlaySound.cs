@@ -5,14 +5,16 @@ using System.Collections.Generic; // For Wwise Events
 
 public class PlaySound : MonoBehaviour
 {
-    public AK.Wwise.Event playSineEvent;
+    public AK.Wwise.Event playEvent;
 
     public List<Button> triggerButtons;
 
+    private uint playingId;
+
+
     void Start()
     {
-        // 检查 Event 和 Button 是否已赋值
-        if (playSineEvent == null)
+        if (playEvent == null)
         {
             Debug.LogError("Wwise Event (playSineEvent) is not assigned! Please assign it in the Inspector.");
             return;
@@ -23,7 +25,7 @@ public class PlaySound : MonoBehaviour
             return;
         }
 
-        foreach(var button in triggerButtons)
+        foreach (var button in triggerButtons)
         {
             button.onClick.AddListener(TriggerWwiseSound);
         }
@@ -31,16 +33,31 @@ public class PlaySound : MonoBehaviour
 
     public void TriggerWwiseSound()
     {
-        if (playSineEvent != null)
+        if (playEvent != null)
         {
-            playSineEvent.Post(gameObject);
-            Debug.Log("Playing Wwise Event: " + playSineEvent.Name);
+            playingId = playEvent.Post(gameObject);
+            Debug.Log("Playing Wwise Event: " + playEvent.Name);
+        }
+    }
+    public void StopWwiseSound()
+    {
+        if (playingId != AkUnitySoundEngine.AK_INVALID_PLAYING_ID) // Check if there's a valid playing ID
+        {
+            AkUnitySoundEngine.StopPlayingID(playingId);
+            Debug.Log("Stopped Wwise Event with Playing ID: " + playingId);
+            playingId = AkUnitySoundEngine.AK_INVALID_PLAYING_ID; // Reset the ID after stopping
+        }
+        else
+        {
+            Debug.Log("No active sound to stop or already stopped.");
         }
     }
 
+
+
     void OnDestroy()
     {
-        foreach(var button in triggerButtons)
+        foreach (var button in triggerButtons)
         {
             button.onClick.RemoveListener(TriggerWwiseSound);
         }

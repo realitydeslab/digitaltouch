@@ -9,6 +9,7 @@ public class NetworkHandJoint : NetworkBehaviour
     [SerializeField] private NetworkVariable<Quaternion> m_HandJointRotation = new(Quaternion.identity, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     public Transform m_HandJoint;
+    public bool IsCamera;
 
     [SerializeField] private Transform m_WorldRoot;
 
@@ -35,6 +36,8 @@ public class NetworkHandJoint : NetworkBehaviour
     {
         // 修复索引计算 - HandJointIndex 已经包含了客户端偏移
         string targetName = $"Hand Joint Synchronizer {HandJointIndex}";
+        if (IsCamera)
+            targetName = "XR Camera Synchronizer";
         
         int maxRetries = 30; // 最多等待3秒
         int retries = 0;
@@ -72,7 +75,6 @@ public class NetworkHandJoint : NetworkBehaviour
         GameObject worldRootObject = GameObject.Find("World Root");
         if (worldRootObject == null)
         {
-            // 如果没有找到 World Root，创建一个
             worldRootObject = new GameObject("World Root");
             Debug.LogWarning("[NetworkHandJoint] World Root not found, created a new one at origin");
         }
@@ -108,7 +110,6 @@ public class NetworkHandJoint : NetworkBehaviour
         {
             transform.rotation = m_WorldRoot.rotation * newValue;
             //Debug.Log("Not owner rotation change");
-
         }   
     }
 }

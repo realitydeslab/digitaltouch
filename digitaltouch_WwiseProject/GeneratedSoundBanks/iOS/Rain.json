@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{2B435CB6-FC19-4B76-85F9-C24E08165D44}",
     "Language": "SFX",
-    "Hash": "{BE8942F3-367F-9BED-56E8-B0C1CCF5D95A}",
+    "Hash": "{10D63E50-DD2F-1C08-70E4-025A15C41970}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\Rain",
     "ShortName": "Rain",
     "Path": "Rain.bnk",
@@ -38,6 +38,16 @@
         "Id": "369297915"
        }
       ]
+     },
+     {
+      "Id": "3206237490",
+      "Name": "Stop_Rain",
+      "ObjectPath": "\\Events\\Default Work Unit\\Stop_Rain",
+      "GUID": "{DA82368D-CD1A-4FA7-B45E-0AB65EC73598}",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0"
      }
     ],
     "GameParameters": [
@@ -50,6 +60,6 @@
     ]
    }
   ],
-  "FileHash": "{61ED1175-C86F-5B75-56A8-BDE454CC4F93}"
+  "FileHash": "{EFF41122-3776-42E6-6483-918CE380F3E5}"
  }
 }

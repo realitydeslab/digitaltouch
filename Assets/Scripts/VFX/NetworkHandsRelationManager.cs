@@ -2,23 +2,30 @@ using UnityEngine;
 using Unity.Netcode;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 [System.Serializable]
-public class RelationOfJoints
+public class LocalRelation
 {
-    public string RelationName = "LeftIndexTip-RightIndexTip";
-    public Transform Tip_1;
-    public Transform Tip_2;
-
+    public string RelationName = "Local_IndexTip";
+    public Transform Point_1;
+    public Transform Point_2;
     public float GetDistance()
     {
-        return Vector3.Distance(Tip_1.position, Tip_2.position);
+        return Vector3.Distance(Point_1.position, Point_2.position);
     }
 
     public Vector3 GetCenterPoint()
     {
-        return Vector3.Lerp(Tip_1.position, Tip_2.position, 0.5f);
+        return Vector3.Lerp(Point_1.position, Point_2.position, 0.5f);
     }
+}
+
+[System.Serializable]
+public class NetworkRelation
+{
+    public string RelationName = "Network_LeftIndexTip";
+    public Transform LocalPoint;
 }
 
 [System.Serializable]
@@ -47,10 +54,12 @@ public class NetworkAffordance
 
 public class NetworkHandsRelationManager : NetworkBehaviour
 {
-    public List<RelationOfJoints> Relations = new List<RelationOfJoints>();
+    public List<LocalRelation> Relations = new List<LocalRelation>();
     // public List<BaseAffordanceControl> affordanceControls = new List<BaseAffordanceControl>();
     // public List<NetworkVariable<bool>> networkIsAffordanceEnableStates = new List<NetworkVariable<bool>>();
     public List<NetworkAffordance> networkAffordances = new List<NetworkAffordance>();
+
+    public Transform XR_Camera;
 
     [Header("Hand Joint Transforms (per player)")]
     public Transform leftIndexTip;
@@ -60,20 +69,16 @@ public class NetworkHandsRelationManager : NetworkBehaviour
 
     public NetworkHandsRelationManager[] playerManagers;
 
-    public NetworkVariable<float> networkDistance = new NetworkVariable<float>(0f, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
-    public NetworkVariable<Vector3> networkCenterPosition = new NetworkVariable<Vector3>(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    public NetworkVariable<float> networkCameraDistance = new NetworkVariable<float>(0f, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    public NetworkVariable<Vector3> networkCameraCenterPosition = new NetworkVariable<Vector3>(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+
+    public NetworkVariable<float> networkIndexDistance = new NetworkVariable<float>(0f, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
+    public NetworkVariable<Vector3> networkIndexCenterPosition = new NetworkVariable<Vector3>(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
     public static NetworkHandsRelationManager Instance { get; private set; }
-    // public NetworkVariable<bool> networkIsFlameEnable = new NetworkVariable<bool>(false);
-    // public NetworkVariable<bool> networkIsParticleEnable = new NetworkVariable<bool>(false);
-
-
-    
 
     public override void OnNetworkSpawn()
     {
-        // networkIsFlameEnable.OnValueChanged += onNetworkFlameEnableChange;
-        // networkIsParticleEnable.OnValueChanged += onNetworkParticleEnableChange;
         GameObject controllerObject = GameObject.Find("UI Canvas");
         if (controllerObject)
         {
@@ -84,9 +89,6 @@ public class NetworkHandsRelationManager : NetworkBehaviour
                 networkAffordances.Add(new NetworkAffordance(affordance));
                 Debug.Log("add a network affordance");
             }
-            // Affordance_UIControl.OnFlameEnableChange += onFlameEnableChangServerRpc;
-            // Affordance_UIControl.OnParticleEnableChange += onParticleEnableChangeServerRpc;
-            Debug.Log("Find UI Canvas Controller");
         }
 
         if (IsOwner)
@@ -100,10 +102,6 @@ public class NetworkHandsRelationManager : NetworkBehaviour
 
     public override void OnNetworkDespawn()
     {
-        // networkIsFlameEnable.OnValueChanged -= onNetworkFlameEnableChange;
-        // networkIsParticleEnable.OnValueChanged -= onNetworkParticleEnableChange;
-        // Affordance_UIControl.OnFlameEnableChange -= onFlameEnableChangServerRpc;
-        // Affordance_UIControl.OnParticleEnableChange -= onParticleEnableChangeServerRpc;
         foreach (var affordance in affordanceController.affordanceControls)
         {
             affordance.OnEnableChange -= onAffordanceEnableChangServerRpc;
@@ -130,14 +128,23 @@ public class NetworkHandsRelationManager : NetworkBehaviour
             {
                 float dist = Vector3.Distance(playerManagers[0].leftIndexTip.position, playerManagers[0].rightIndexTip.position);
                 Vector3 center = Vector3.Lerp(playerManagers[0].leftIndexTip.position, playerManagers[0].rightIndexTip.position, 0.5f);
-                networkDistance.Value = dist;
-                networkCenterPosition.Value = center;
+                networkIndexDistance.Value = dist;
+                networkIndexCenterPosition.Value = center;
             }
         }
         else if (playerManagers.Length >= 2)
         {
             NetworkHandsRelationManager hostManager = playerManagers[0].IsHost ? playerManagers[0] : playerManagers[1];
             NetworkHandsRelationManager clientManager = playerManagers[0].IsHost ? playerManagers[1] : playerManagers[0];
+
+            // Relations of XR Cameras.
+            if (hostManager.XR_Camera != null && clientManager.XR_Camera != null)
+            {
+                float dist = Vector3.Distance(hostManager.XR_Camera.position, clientManager.XR_Camera.position);
+                Vector3 center = Vector3.Lerp(hostManager.XR_Camera.position, clientManager.XR_Camera.position, 0.5f);
+                networkCameraDistance.Value = dist;
+                networkCameraCenterPosition.Value = center;
+            }
 
             if (hostManager.leftIndexTip != null && hostManager.rightIndexTip != null &&
                 clientManager.leftIndexTip != null && clientManager.rightIndexTip != null)
@@ -149,8 +156,8 @@ public class NetworkHandsRelationManager : NetworkBehaviour
 
                 Vector3 center = Vector3.Lerp(hostHandsCenter, clientHandsCenter, 0.5f);
 
-                networkDistance.Value = dist;
-                networkCenterPosition.Value = center;
+                networkIndexDistance.Value = dist;
+                networkIndexCenterPosition.Value = center;
             }
         }
     }
@@ -159,24 +166,5 @@ public class NetworkHandsRelationManager : NetworkBehaviour
     private void onAffordanceEnableChangServerRpc(int index, bool state)
     {
         networkAffordances[index].networkIsEnable.Value = state;
-        //networkIsFlameEnable.Value = state;
     }
-
-    // [ServerRpc(RequireOwnership = false)]
-    // private void onParticleEnableChangeServerRpc(bool state)
-    // {
-    //     networkIsParticleEnable.Value = state;
-    // }
-
-    // private void onNetworkAffordanceEnableChange(bool previousState, bool currentState)
-    // {
-    //     if (IsOwner)
-            
-    // }
-
-    // private void onNetworkParticleEnableChange(bool previousState, bool currentState)
-    // {
-    //     if (IsOwner)
-    //         affordanceController.SetParticle(currentState);
-    // }
 }

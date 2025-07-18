@@ -15,6 +15,7 @@ namespace AK
     {
         static const AkUniqueID PLAY_RAIN = 2838936948U;
         static const AkUniqueID PLAY_SINE = 4010112737U;
+        static const AkUniqueID STOP_RAIN = 3206237490U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS
