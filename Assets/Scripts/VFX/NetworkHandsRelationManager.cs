@@ -28,29 +28,29 @@ public class NetworkRelation
     public Transform LocalPoint;
 }
 
-[System.Serializable]
-public class NetworkAffordance
-{
-    public BaseAffordanceControl affordance;
-    public NetworkVariable<bool> networkIsEnable;
+// [System.Serializable]
+// public class NetworkAffordance
+// {
+//     public BaseAffordanceControl affordance;
+//     public NetworkVariable<bool> networkIsEnable = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
 
-    public NetworkAffordance(BaseAffordanceControl _affordance)
-    {
-        affordance = _affordance;
-        networkIsEnable = new NetworkVariable<bool>(false);
-        networkIsEnable.OnValueChanged += onAffordanceEnableChange;
-    }
+//     public NetworkAffordance(BaseAffordanceControl _affordance)
+//     {
+//         affordance = _affordance;
+//         //networkIsEnable = 
+//         networkIsEnable.OnValueChanged += onAffordanceEnableChange;
+//     }
 
-    ~NetworkAffordance()
-    {
-        networkIsEnable.OnValueChanged -= onAffordanceEnableChange;
-    }
-    public void onAffordanceEnableChange(bool previousState, bool currentState)
-    {
-        affordance.SetEnable(currentState);
-        Debug.Log("Affordance State is " + currentState);
-    }
-}
+//     ~NetworkAffordance()
+//     {
+//         networkIsEnable.OnValueChanged -= onAffordanceEnableChange;
+//     }
+//     public void onAffordanceEnableChange(bool previousState, bool currentState)
+//     {
+//         affordance.SetEnable(currentState);
+//         Debug.Log("Affordance State is " + currentState);
+//     }
+// }
 
 public class NetworkHandsRelationManager : NetworkBehaviour
 {
@@ -165,6 +165,8 @@ public class NetworkHandsRelationManager : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     private void onAffordanceEnableChangServerRpc(int index, bool state)
     {
+        Debug.Log($"Origin affordance {index} is {networkAffordances[index].networkIsEnable.Value}, in {networkAffordances.Count}");
+        Debug.Log($"Enable affordance {index} to be {state}");
         networkAffordances[index].networkIsEnable.Value = state;
     }
 }
