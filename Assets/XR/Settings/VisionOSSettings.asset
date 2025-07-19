@@ -16,11 +16,12 @@ MonoBehaviour:
   m_HandsTrackingUsageDescription: Require Hand Tracking.
   m_WorldSensingUsageDescription: Require World Sensing.
   m_RuntimeSettings: {fileID: 11400000, guid: 8cf4712eea03144c78ff101b88d1c43f, type: 2}
-  m_UpperLimbVisibility: 0
+  m_UpperLimbVisibility: 2
+  m_HighQualityRecordingMode: 0
   m_FoveatedRendering: 1
-  m_MetalImmersionStyle: 0
-  m_RealityKitImmersionStyle: 0
+  m_MetalImmersionStyle: 1
+  m_RealityKitImmersionStyle: 1
   m_MetalImmersiveOverlays: 0
   m_RealityKitImmersiveOverlays: 0
-  m_IL2CPPLargeExeWorkaround: 0
-  m_UseACTool: 0
+  m_IL2CPPLargeExeWorkaround: 1
+  m_UseACTool: 1

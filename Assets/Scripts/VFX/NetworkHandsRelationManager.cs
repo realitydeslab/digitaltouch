@@ -68,6 +68,7 @@ public class NetworkHandsRelationManager : NetworkBehaviour
     public Affordance_UIControl affordanceController;
 
     public NetworkHandsRelationManager[] playerManagers;
+    public GameObject NetworkAffordancePrefab;
 
     public NetworkVariable<float> networkCameraDistance = new NetworkVariable<float>(0f, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
     public NetworkVariable<Vector3> networkCameraCenterPosition = new NetworkVariable<Vector3>(Vector3.zero, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
@@ -83,11 +84,19 @@ public class NetworkHandsRelationManager : NetworkBehaviour
         if (controllerObject)
         {
             affordanceController = controllerObject.GetComponent<Affordance_UIControl>();
+            int index = 0;
             foreach (var affordance in affordanceController.affordanceControls)
             {
                 affordance.OnEnableChange += onAffordanceEnableChangServerRpc;
-                networkAffordances.Add(new NetworkAffordance(affordance));
-                Debug.Log("add a network affordance");
+                var instance = Instantiate(NetworkAffordancePrefab, this.transform);
+                NetworkAffordance networkAffordance = instance.GetComponent<NetworkAffordance>();
+                if (networkAffordance != null)
+                {
+                    networkAffordance.affordance = affordance;
+                    networkAffordances.Add(networkAffordance);
+                    Debug.Log("add a network affordance");
+                }
+                //networkAffordances.Add(new NetworkAffordance(affordance));
             }
         }
 

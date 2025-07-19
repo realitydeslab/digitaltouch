@@ -627,13 +627,20 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   Relations: []
   networkAffordances: []
+  XR_Camera: {fileID: 0}
   leftIndexTip: {fileID: 6750267542131347468}
   rightIndexTip: {fileID: 635129553873628953}
   affordanceController: {fileID: 0}
   playerManagers: []
-  networkDistance:
+  NetworkAffordancePrefab: {fileID: 6321790514469636372, guid: 1873582e616494b78b7b97b86ed99645,
+    type: 3}
+  networkCameraDistance:
     m_InternalValue: 0
-  networkCenterPosition:
+  networkCameraCenterPosition:
+    m_InternalValue: {x: 0, y: 0, z: 0}
+  networkIndexDistance:
+    m_InternalValue: 0
+  networkIndexCenterPosition:
     m_InternalValue: {x: 0, y: 0, z: 0}
 --- !u!1 &1001669195177280027
 GameObject:

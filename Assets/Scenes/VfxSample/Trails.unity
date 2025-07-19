@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 600624368}
   - component: {fileID: 600624367}
   - component: {fileID: 600624371}
-  - component: {fileID: 600624370}
+  - component: {fileID: 600624372}
   m_Layer: 0
   m_Name: Trails
   m_TagString: Untagged
@@ -318,6 +318,9 @@ VisualEffect:
       - m_Value: {x: 0.091, y: 0, z: -0.067}
         m_Name: HandCenter
         m_Overridden: 1
+      - m_Value: {x: 0.091, y: 0, z: -0.067}
+        m_Name: AttractStrip
+        m_Overridden: 1
     m_Vector4f:
       m_Array: []
     m_Uint:
@@ -358,22 +361,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &600624370
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600624366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 07c3070554d0a8944a95ff8f018c2c9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Space: 0
-  m_Property:
-    m_Name: HandCenter
-  Target: {fileID: 125806263}
 --- !u!114 &600624371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,8 +375,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ExecuteInEditor: 1
   m_Bindings:
-  - {fileID: 600624370}
+  - {fileID: 600624372}
   m_VisualEffect: {fileID: 600624368}
+--- !u!114 &600624372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600624366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07c3070554d0a8944a95ff8f018c2c9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Space: 0
+  m_Property:
+    m_Name: AttractStrip
+  Target: {fileID: 125806263}
 --- !u!1 &966990377
 GameObject:
   m_ObjectHideFlags: 0
