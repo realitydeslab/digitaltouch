@@ -4047,7 +4047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c83d9f5f215348c485416f34d599934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RootTransform: {fileID: 0}
+  m_RootTransform: {fileID: 1412431493}
 --- !u!114 &557219931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7348,7 +7348,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1105280961}
   m_OnClick:
     m_PersistentCalls:
@@ -9825,6 +9825,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a922701ac854fb08f838cd5392d32a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1412431493 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2356343149543075009, guid: 90d738a7c2ede42698cf329d4a66f878,
+    type: 3}
+  m_PrefabInstance: {fileID: 1412431490}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1433045682
 GameObject:
   m_ObjectHideFlags: 0
