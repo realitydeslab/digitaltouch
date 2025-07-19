@@ -5170,6 +5170,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 760439343}
+  - component: {fileID: 760439348}
+  - component: {fileID: 760439347}
+  - component: {fileID: 760439346}
+  - component: {fileID: 760439345}
   - component: {fileID: 760439344}
   m_Layer: 0
   m_Name: OSC Control
@@ -5206,10 +5210,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _connection: {fileID: 11400000, guid: f9362d07421034dfb849264cd50dca00, type: 2}
-  _oscAddress: /unity
-  _dataSource: {fileID: 0}
-  _propertyName: 
+  _oscAddress: /networkRight
+  _dataSource: {fileID: 760439348}
+  _propertyName: networkRightIndexTipDistance
   _keepSending: 0
+--- !u!114 &760439345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760439342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: f9362d07421034dfb849264cd50dca00, type: 2}
+  _oscAddress: /networkLeft
+  _dataSource: {fileID: 760439348}
+  _propertyName: networkLeftIndexTipDistance
+  _keepSending: 0
+--- !u!114 &760439346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760439342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: f9362d07421034dfb849264cd50dca00, type: 2}
+  _oscAddress: /clientIndexTip
+  _dataSource: {fileID: 760439348}
+  _propertyName: clientIndexTipDistance
+  _keepSending: 0
+--- !u!114 &760439347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760439342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: f9362d07421034dfb849264cd50dca00, type: 2}
+  _oscAddress: /hostIndexTip
+  _dataSource: {fileID: 760439348}
+  _propertyName: hostIndexTipDistance
+  _keepSending: 0
+--- !u!114 &760439348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760439342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f07823afa8684357a3609b23a8450df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &764007519
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,30 +28,6 @@ public class NetworkRelation
     public Transform LocalPoint;
 }
 
-// [System.Serializable]
-// public class NetworkAffordance
-// {
-//     public BaseAffordanceControl affordance;
-//     public NetworkVariable<bool> networkIsEnable = new NetworkVariable<bool>(false, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Server);
-
-//     public NetworkAffordance(BaseAffordanceControl _affordance)
-//     {
-//         affordance = _affordance;
-//         //networkIsEnable = 
-//         networkIsEnable.OnValueChanged += onAffordanceEnableChange;
-//     }
-
-//     ~NetworkAffordance()
-//     {
-//         networkIsEnable.OnValueChanged -= onAffordanceEnableChange;
-//     }
-//     public void onAffordanceEnableChange(bool previousState, bool currentState)
-//     {
-//         affordance.SetEnable(currentState);
-//         Debug.Log("Affordance State is " + currentState);
-//     }
-// }
-
 public class NetworkHandsRelationManager : NetworkBehaviour
 {
     public List<LocalRelation> Relations = new List<LocalRelation>();
@@ -60,6 +36,8 @@ public class NetworkHandsRelationManager : NetworkBehaviour
     public List<NetworkAffordance> networkAffordances = new List<NetworkAffordance>();
 
     public Transform XR_Camera;
+
+    public OscPropertyContainer oscContainer;
 
     [Header("Hand Joint Transforms (per player)")]
     public Transform leftIndexTip;
@@ -81,6 +59,7 @@ public class NetworkHandsRelationManager : NetworkBehaviour
     public override void OnNetworkSpawn()
     {
         GameObject controllerObject = GameObject.Find("UI Canvas");
+        oscContainer = GameObject.Find("OSC Control").GetComponent<OscPropertyContainer>();
         if (controllerObject)
         {
             affordanceController = controllerObject.GetComponent<Affordance_UIControl>();
@@ -139,6 +118,8 @@ public class NetworkHandsRelationManager : NetworkBehaviour
                 Vector3 center = Vector3.Lerp(playerManagers[0].leftIndexTip.position, playerManagers[0].rightIndexTip.position, 0.5f);
                 networkIndexDistance.Value = dist;
                 networkIndexCenterPosition.Value = center;
+                if(IsServer)
+                    oscContainer.hostIndexTipDistance = dist;
             }
         }
         else if (playerManagers.Length >= 2)
@@ -167,6 +148,14 @@ public class NetworkHandsRelationManager : NetworkBehaviour
 
                 networkIndexDistance.Value = dist;
                 networkIndexCenterPosition.Value = center;
+
+                if (IsServer)
+                {
+                    oscContainer.hostIndexTipDistance = Vector3.Distance(hostManager.leftIndexTip.position, hostManager.rightIndexTip.position);
+                    oscContainer.clientIndexTipDistance = Vector3.Distance(clientManager.leftIndexTip.position, clientManager.rightIndexTip.position);
+                    oscContainer.networkLeftIndexTipDistance = Vector3.Distance(hostManager.leftIndexTip.position, clientManager.leftIndexTip.position);
+                    oscContainer.networkRightIndexTipDistance = Vector3.Distance(hostManager.rightIndexTip.position, clientManager.rightIndexTip.position);;
+                }
             }
         }
     }
