@@ -5175,6 +5175,8 @@ GameObject:
   - component: {fileID: 760439346}
   - component: {fileID: 760439345}
   - component: {fileID: 760439344}
+  - component: {fileID: 760439350}
+  - component: {fileID: 760439349}
   m_Layer: 0
   m_Name: OSC Control
   m_TagString: Untagged
@@ -5277,6 +5279,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f07823afa8684357a3609b23a8450df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &760439349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760439342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: f9362d07421034dfb849264cd50dca00, type: 2}
+  _oscAddress: /clientHandsRelativeHeight
+  _dataSource: {fileID: 760439348}
+  _propertyName: clientHandsRelativeHeight
+  _keepSending: 0
+--- !u!114 &760439350
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760439342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e43cc78b62f2184d8bebe41bd574f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _connection: {fileID: 11400000, guid: 58402ab0afc044b28a92c5b0f15f2001, type: 2}
+  _oscAddress: /hostHandsRelativeHeight
+  _dataSource: {fileID: 760439348}
+  _propertyName: hostHandsRelativeHeight
+  _keepSending: 0
 --- !u!1 &764007519
 GameObject:
   m_ObjectHideFlags: 0

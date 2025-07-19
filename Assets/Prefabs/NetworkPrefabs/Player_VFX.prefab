@@ -627,7 +627,8 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   Relations: []
   networkAffordances: []
-  XR_Camera: {fileID: 0}
+  XR_Camera: {fileID: 7202462729246863433}
+  oscContainer: {fileID: 0}
   leftIndexTip: {fileID: 6750267542131347468}
   rightIndexTip: {fileID: 635129553873628953}
   affordanceController: {fileID: 0}

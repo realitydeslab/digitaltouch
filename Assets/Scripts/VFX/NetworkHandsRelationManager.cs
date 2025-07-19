@@ -118,8 +118,12 @@ public class NetworkHandsRelationManager : NetworkBehaviour
                 Vector3 center = Vector3.Lerp(playerManagers[0].leftIndexTip.position, playerManagers[0].rightIndexTip.position, 0.5f);
                 networkIndexDistance.Value = dist;
                 networkIndexCenterPosition.Value = center;
-                if(IsServer)
+                if (IsServer)
+                {
                     oscContainer.hostIndexTipDistance = dist;
+                    oscContainer.hostHandsRelativeHeight = center.y - XR_Camera.position.y;
+                }
+                    
             }
         }
         else if (playerManagers.Length >= 2)
@@ -154,7 +158,9 @@ public class NetworkHandsRelationManager : NetworkBehaviour
                     oscContainer.hostIndexTipDistance = Vector3.Distance(hostManager.leftIndexTip.position, hostManager.rightIndexTip.position);
                     oscContainer.clientIndexTipDistance = Vector3.Distance(clientManager.leftIndexTip.position, clientManager.rightIndexTip.position);
                     oscContainer.networkLeftIndexTipDistance = Vector3.Distance(hostManager.leftIndexTip.position, clientManager.leftIndexTip.position);
-                    oscContainer.networkRightIndexTipDistance = Vector3.Distance(hostManager.rightIndexTip.position, clientManager.rightIndexTip.position);;
+                    oscContainer.networkRightIndexTipDistance = Vector3.Distance(hostManager.rightIndexTip.position, clientManager.rightIndexTip.position);
+                    oscContainer.hostHandsRelativeHeight = hostHandsCenter.y - hostManager.XR_Camera.position.y;
+                    oscContainer.clientHandsRelativeHeight = clientHandsCenter.y - clientManager.XR_Camera.position.y;
                 }
             }
         }
